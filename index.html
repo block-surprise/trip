@@ -26,86 +26,90 @@
             font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
             margin: 0; padding: 20px; min-height: 100vh;
             -webkit-tap-highlight-color: transparent;
-            padding-bottom: 80px; /* ナビバー用 */
         }
 
-        .container { max-width: 1000px; margin: 0 auto; }
+        .container { max-width: 800px; margin: 0 auto; padding-bottom: 40px; }
 
-        /* Navigation Tab */
+        /* Navigation Tabs */
+        .nav-wrapper {
+            display: flex; justify-content: center; margin-bottom: 30px;
+            position: sticky; top: 10px; z-index: 1000;
+        }
         .nav-tabs {
-            display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;
-            position: sticky; top: 10px; z-index: 100;
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px);
+            padding: 6px; border-radius: 40px; border: 1px solid var(--card-border);
+            display: flex; gap: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.05);
         }
         .nav-btn {
-            background: var(--card-bg); backdrop-filter: blur(10px);
-            border: 1px solid var(--card-border); padding: 12px 24px;
-            border-radius: 40px; font-weight: 800; cursor: pointer;
-            color: var(--text-secondary); transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: none; background: transparent; padding: 10px 24px; border-radius: 30px;
+            font-weight: 800; font-size: 14px; cursor: pointer; color: var(--text-secondary);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .nav-btn.active {
-            background: var(--accent-color); color: white; border-color: var(--accent-color);
-        }
+        .nav-btn.active { background: var(--accent-color); color: white; }
 
-        header { text-align: center; margin-bottom: 30px; padding-top: 10px; }
-        header h1 { font-size: clamp(32px, 8vw, 42px); font-weight: 800; margin: 0; color: var(--text-primary); letter-spacing: -1px; }
-        header p { color: var(--text-secondary); font-size: 14px; margin-top: 8px; }
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-size: clamp(28px, 7vw, 36px); font-weight: 900; margin: 0; color: var(--text-primary); letter-spacing: -1px; }
+        header p { color: var(--text-secondary); font-size: 14px; margin-top: 6px; }
+
+        /* Views */
+        .view-content { display: none; animation: fadeIn 0.4s ease; }
+        .view-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Home View Styles */
-        .section-title { font-size: 18px; font-weight: 800; margin: 24px 0 16px 10px; display: flex; align-items: center; gap: 8px; }
+        .section-header { font-size: 18px; font-weight: 800; margin: 30px 0 15px 5px; display: flex; align-items: center; gap: 8px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .news-card {
-            background: var(--card-bg); border-radius: var(--radius-xl); padding: 20px;
+        .card {
+            background: var(--card-bg); backdrop-filter: blur(10px); border-radius: var(--radius-xl);
+            padding: 20px; border: 2px solid var(--card-border); box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+            transition: 0.3s;
+        }
+        .card:active { transform: scale(0.98); }
+        .card-tag { font-size: 10px; font-weight: 800; color: var(--accent-color); text-transform: uppercase; margin-bottom: 6px; }
+        .card h3 { margin: 0 0 8px 0; font-size: 16px; font-weight: 800; }
+        .card p { margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+        /* Planner View Styles (Bento) */
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
+        .bento-card {
+            background: var(--card-bg); border-radius: var(--radius-xl); padding: 16px;
             border: 2px solid var(--card-border); box-shadow: 0 8px 32px rgba(0,0,0,0.05);
         }
-        .news-date { font-size: 11px; font-weight: 800; color: var(--accent-color); margin-bottom: 5px; }
-        .news-card h3 { margin: 0 0 8px 0; font-size: 16px; }
-        .news-card p { margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-
-        /* Bento Grid (Planner) */
-        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 30px; }
-        .bento-card {
-            background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border); border-radius: var(--radius-xl); padding: 18px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
-        }
-        .bento-card label { display: block; font-size: 10px; font-weight: 800; color: var(--accent-color); text-transform: uppercase; margin-bottom: 6px; }
-        
+        .bento-card label { display: block; font-size: 10px; font-weight: 800; color: var(--accent-color); margin-bottom: 6px; }
         input, select, textarea {
             width: 100%; border: none; background: transparent; font-size: 16px; 
             font-weight: 600; color: var(--text-primary); outline: none; font-family: inherit;
         }
-
         .col-2 { grid-column: span 2; }
         .col-4 { grid-column: span 4; }
 
-        .btn-generate {
+        .btn-main {
             grid-column: span 4; background: var(--accent-color); color: white;
             border-radius: var(--radius-xl); padding: 20px; border: none;
             font-size: 18px; font-weight: 800; cursor: pointer; transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,113,227,0.3);
+            box-shadow: 0 10px 20px rgba(0,113,227,0.2);
         }
 
-        /* Result Area */
-        #resultArea { display: none; margin-top: 30px; }
-        .day-box { background: white; border-radius: var(--radius-xl); padding: 24px; margin-bottom: 16px; }
-        .day-title { font-size: 20px; font-weight: 800; color: var(--accent-color); margin-bottom: 16px; }
-        .event { display: flex; gap: 15px; margin-bottom: 20px; border-left: 3px solid #eee; padding-left: 15px; }
-        .time { font-weight: 800; color: var(--text-primary); min-width: 50px; font-size: 14px; }
+        /* Result Styles */
+        .day-box { background: white; border-radius: var(--radius-xl); padding: 24px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        .day-title { font-size: 20px; font-weight: 800; color: var(--accent-color); margin-bottom: 15px; }
+        .event { display: flex; gap: 15px; margin-bottom: 15px; border-left: 3px solid #f0f0f0; padding-left: 15px; }
+        .time { font-weight: 800; font-size: 14px; min-width: 45px; }
         .spot-name { font-weight: 700; font-size: 16px; display: block; }
-        .spot-desc { color: var(--text-secondary); font-size: 13px; margin-top: 4px; line-height: 1.5; }
+        .spot-desc { color: var(--text-secondary); font-size: 13px; margin-top: 3px; line-height: 1.5; }
 
-        .info-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        @media (min-width: 768px) { .info-grid { grid-template-columns: repeat(3, 1fr); } }
-        .info-card { background: #fff; padding: 18px; border-radius: var(--radius-xl); border-top: 4px solid var(--accent-color); }
-        .info-card h4 { margin: 0 0 10px 0; font-size: 14px; color: var(--accent-color); display: flex; align-items: center; gap: 8px; }
+        .info-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 20px; }
+        @media (min-width: 600px) { .info-grid { grid-template-columns: repeat(3, 1fr); } }
+        .info-card { background: white; padding: 16px; border-radius: var(--radius-xl); border-top: 4px solid var(--accent-color); }
+        .info-card h4 { margin: 0 0 8px 0; font-size: 13px; color: var(--accent-color); }
 
         #loader { display: none; text-align: center; padding: 40px; }
-        .spinner { width: 40px; height: 40px; border: 4px solid #eee; border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #eee; border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
         @media (max-width: 600px) {
+            .grid-2 { grid-template-columns: 1fr; }
             .bento-grid { grid-template-columns: 1fr; }
             .col-2, .col-4 { grid-column: span 1; }
         }
@@ -114,10 +118,12 @@
 <body>
 
 <div class="container">
-    <nav class="nav-tabs">
-        <button class="nav-btn active" onclick="showView('home')">Home</button>
-        <button class="nav-btn" onclick="showView('planner')">Planner</button>
-    </nav>
+    <div class="nav-wrapper">
+        <div class="nav-tabs">
+            <button class="nav-btn active" onclick="switchView('home')">Home</button>
+            <button class="nav-btn" onclick="switchView('planner')">Planner</button>
+        </div>
+    </div>
 
     <header>
         <h1>SURGE Travel</h1>
@@ -125,38 +131,38 @@
     </header>
 
     <!-- Home View -->
-    <div id="homeView">
-        <div class="section-title"><i class="fas fa-bullhorn"></i> お知らせ</div>
-        <div class="news-grid">
-            <div class="news-card">
-                <div class="news-date">2026.05.04</div>
-                <h3>SURGE Travel v2.0 公開</h3>
-                <p>モバイル対応を強化し、より直感的なプラン生成が可能になりました。</p>
+    <div id="homeView" class="view-content active">
+        <div class="section-header"><i class="fas fa-bullhorn"></i> News</div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-tag">Update</div>
+                <h3>v2.0 リリース</h3>
+                <p>インターフェースを刷新。ホーム機能とプランナーが分離され、より使いやすくなりました。</p>
             </div>
-            <div class="news-card">
-                <div class="news-date">2026.04.20</div>
-                <h3>マニア機能の拡充</h3>
-                <p>航空ファンや文房具愛好家向けの解析アルゴリズムをアップデートしました。</p>
+            <div class="card">
+                <div class="card-tag">Tips</div>
+                <h3>こだわり検索</h3>
+                <p>「0.5mmのシャーペン」など、マニアックな要望をAIが解析して反映します。</p>
             </div>
         </div>
 
-        <div class="section-title"><i class="fas fa-star"></i> おすすめの目的地</div>
-        <div class="news-grid">
-            <div class="news-card" style="cursor:pointer" onclick="quickFill('羽田空港')">
-                <div class="news-date">HOT</div>
+        <div class="section-header"><i class="fas fa-compass"></i> Recommendations</div>
+        <div class="grid-2">
+            <div class="card" onclick="quickLaunch('羽田空港', '滑走路が見えるレストランや、デッキでの撮影を楽しみたい')">
+                <div class="card-tag">Spot</div>
                 <h3>羽田空港周辺</h3>
-                <p>滑走路が見えるレストランや、最新の撮影スポットを巡る旅。</p>
+                <p>航空ファン必見。空の旅を感じる特別な1日を提案します。</p>
             </div>
-            <div class="news-card" style="cursor:pointer" onclick="quickFill('銀座')">
-                <div class="news-date">RECOMMEND</div>
-                <h3>銀座 文房具巡り</h3>
-                <p>伊東屋など、世界中の筆記具が集まる聖地を歩くプラン。</p>
+            <div class="card" onclick="quickLaunch('銀座', '伊東屋などの老舗から最新の文房具店まで巡りたい')">
+                <div class="card-tag">Stationery</div>
+                <h3>銀座文房具巡り</h3>
+                <p>書くことを愛する人のための、至高の文具ルート。</p>
             </div>
         </div>
     </div>
 
     <!-- Planner View -->
-    <div id="plannerView" style="display: none;">
+    <div id="plannerView" class="view-content">
         <div class="bento-grid">
             <div class="bento-card col-2">
                 <label>目的地</label>
@@ -179,23 +185,23 @@
                 </select>
             </div>
             <div class="bento-card col-4">
-                <label>こだわり（文房具、空港、撮影スポットなど）</label>
-                <textarea id="notes" rows="3" placeholder="例：0.5mmのシャーペンが充実した店、滑走路が見える場所..."></textarea>
+                <label>こだわり（空港、文房具、撮影スポットなど）</label>
+                <textarea id="notes" rows="3" placeholder="例：空港の見えるカフェ、0.5mm芯が豊富な店..."></textarea>
             </div>
-            <button class="btn-generate" id="runBtn" onclick="generate()">旅行プランを生成する</button>
+            <button class="btn-main" id="runBtn" onclick="generate()">旅行プランを生成する</button>
         </div>
 
         <div id="loader">
             <div class="spinner"></div>
-            <p>SURGE AI が解析中...</p>
+            <p>SURGE AI がプランを作成中...</p>
         </div>
 
-        <div id="resultArea">
+        <div id="resultArea" style="display: none;">
             <div id="mainPlan"></div>
             <div class="info-grid">
-                <div class="info-card"><h4><i class="fas fa-coins"></i> 予算目安</h4><div id="budgetBox"></div></div>
-                <div class="info-card"><h4><i class="fas fa-briefcase"></i> 持ち物</h4><div id="itemBox"></div></div>
-                <div class="info-card"><h4><i class="fas fa-lightbulb"></i> マニア・ノート</h4><div id="maniaBox"></div></div>
+                <div class="info-card"><h4><i class="fas fa-coins"></i> 予算目安</h4><div id="budgetBox" style="font-size: 13px;"></div></div>
+                <div class="info-card"><h4><i class="fas fa-briefcase"></i> 持ち物</h4><div id="itemBox" style="font-size: 13px;"></div></div>
+                <div class="info-card"><h4><i class="fas fa-lightbulb"></i> Note</h4><div id="maniaBox" style="font-size: 13px;"></div></div>
             </div>
         </div>
     </div>
@@ -204,18 +210,20 @@
 <script>
     const WORKER_URL = "https://trip.proluce.workers.dev";
 
-    function showView(view) {
-        document.getElementById('homeView').style.display = view === 'home' ? 'block' : 'none';
-        document.getElementById('plannerView').style.display = view === 'planner' ? 'block' : 'none';
+    function switchView(view) {
+        document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
         
-        const btns = document.querySelectorAll('.nav-btn');
-        btns[0].classList.toggle('active', view === 'home');
-        btns[1].classList.toggle('active', view === 'planner');
+        document.getElementById(view + 'View').classList.add('active');
+        event.currentTarget.classList.add('active');
+        window.scrollTo(0, 0);
     }
 
-    function quickFill(place) {
+    function quickLaunch(place, note) {
         document.getElementById('dest').value = place;
-        showView('planner');
+        document.getElementById('notes').value = note;
+        // Plannerボタン自体を擬似的にクリックしたような挙動にするため、タブを切り替える
+        document.querySelector('.nav-btn:nth-child(2)').click();
     }
 
     async function generate() {
@@ -244,14 +252,14 @@
             
             const startIdx = aiText.indexOf('{');
             const endIdx = aiText.lastIndexOf('}');
-            const jsonString = aiText.substring(startIdx, endIdx + 1);
-            const plan = JSON.parse(jsonString);
+            const plan = JSON.parse(aiText.substring(startIdx, endIdx + 1));
 
             render(plan);
             loader.style.display = 'none';
             result.style.display = 'block';
+            result.scrollIntoView({ behavior: 'smooth' });
         } catch (e) {
-            alert("エラー: " + e.message);
+            alert("生成に失敗しました。もう一度お試しください。");
             loader.style.display = 'none';
         } finally {
             btn.disabled = false;
@@ -274,8 +282,8 @@
             </div>
         `).join('');
 
-        document.getElementById('budgetBox').innerHTML = (plan.budget_breakdown || []).map(b => `<div style="font-size:13px; margin-bottom:5px;">• ${b}</div>`).join('');
-        document.getElementById('itemBox').innerHTML = (plan.items || []).map(i => `<div style="font-size:13px; margin-bottom:5px;">□ ${i}</div>`).join('');
+        document.getElementById('budgetBox').innerHTML = (plan.budget_breakdown || []).map(b => `• ${b}<br>`).join('');
+        document.getElementById('itemBox').innerHTML = (plan.items || []).map(i => `□ ${i}<br>`).join('');
         document.getElementById('maniaBox').innerText = plan.mania_point || "なし";
     }
 </script>
