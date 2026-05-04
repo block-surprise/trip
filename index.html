@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Trip Planner</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; background: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        textarea { width: 100%; height: 100px; margin-top: 10px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        #result { margin-top: 20px; white-space: pre-wrap; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>🌍 AI旅行プランナー</h2>
+    <p>どこに、誰と、何日間行きたいですか？（例：京都に友達と2一泊二日、予算少なめ）</p>
+    <textarea id="userInput" placeholder="例：北海道で美味しい海鮮を食べる2泊3日の旅"></textarea>
+    <br><br>
+    <button onclick="generatePlan()">プランを作成する</button>
+
+    <div id="result">ここにプランが表示されます...</div>
+</div>
+
+<script>
+async function generatePlan() {
+    const input = document.getElementById('userInput').value;
+    const resultDiv = document.getElementById('result');
+    
+    if (!input) return alert("内容を入力してください");
+
+    resultDiv.innerText = "AIが一生懸命考えています...";
+
+    // 本来はここにAPIキーを入れて通信します
+    // 今回は「SURGE」開発者であるあなた向けに、構造のイメージを出力します
+    try {
+        // ※実際には fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY', ...) を呼び出します
+        
+        // 擬似的なレスポンスのシミュレーション
+        setTimeout(() => {
+            resultDiv.innerHTML = `
+                <h3>🗺️ 提案されたプラン</h3>
+                <hr>
+                <strong>【1日目：到着と散策】</strong><br>
+                ・10:00 〇〇駅到着<br>
+                ・12:00 地元の人気店でランチ<br>
+                ・15:00 観光スポットAを巡る<br><br>
+                <strong>【2日目：体験と帰路】</strong><br>
+                ・09:00 ホテル出発<br>
+                ・11:00 アクティビティ体験<br>
+                ・16:00 お土産購入、解散<br>
+                <hr>
+                <p>※実際のAPI連携にはGoogle AI Studioで発行したAPIキーが必要です。</p>
+            `;
+        }, 1500);
+
+    } catch (error) {
+        resultDiv.innerText = "エラーが発生しました。";
+    }
+}
+</script>
+
+</body>
+</html>
