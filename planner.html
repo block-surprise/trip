@@ -23,33 +23,41 @@
         input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
 
         .btn-gen { width: 100%; background: #000; color: white; border: none; padding: 22px; border-radius: 20px; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .btn-gen:hover { transform: translateY(-2px); background: var(--accent); box-shadow: 0 15px 30px rgba(0,113,227,0.3); }
+        .btn-gen:hover { transform: translateY(-2px); background: var(--accent); }
 
-        /* 結果表示エリア */
+        /* 結果エリア */
         #resultArea { display: none; margin-top: 80px; border-top: 2px solid #f2f2f7; padding-top: 60px; }
         .day-card { margin-bottom: 60px; }
         .day-title { font-size: 26px; font-weight: 900; margin-bottom: 32px; display: flex; align-items: center; gap: 15px; }
-        .day-title span { background: var(--accent); color: #fff; font-size: 14px; padding: 4px 12px; border-radius: 8px; font-family: 'Plus Jakarta Sans'; }
+        .day-title span { background: var(--accent); color: #fff; font-size: 14px; padding: 4px 12px; border-radius: 8px; }
 
-        .event-node { display: flex; gap: 32px; margin-bottom: 32px; position: relative; }
+        .event-node { display: flex; gap: 24px; margin-bottom: 32px; position: relative; }
         .event-node::before { content: ''; position: absolute; left: 11px; top: 25px; bottom: -15px; width: 2px; background: #e5e5e5; }
         .event-node:last-child::before { display: none; }
         
-        .time-badge { min-width: 65px; height: 26px; background: #f5f5f7; color: var(--text); border-radius: 13px; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; z-index: 1; font-family: 'Plus Jakarta Sans'; }
-        .spot-info h4 { margin: 0 0 8px; font-size: 19px; font-weight: 800; color: #1d1d1f; }
-        .spot-info p { margin: 0; font-size: 15px; color: #424245; line-height: 1.8; }
+        .time-badge { min-width: 65px; height: 26px; background: #f5f5f7; color: var(--text); border-radius: 13px; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; z-index: 1; }
+        
+        .spot-info { flex: 1; }
+        .spot-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .spot-info h4 { margin: 0; font-size: 19px; font-weight: 800; }
+        .btn-map { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 700; border: 1.5px solid var(--accent); padding: 4px 12px; border-radius: 8px; transition: 0.2s; }
+        .btn-map:hover { background: var(--accent); color: #fff; }
+        
+        /* 持ち物セクション */
+        .items-card { background: #f5f5f7; border-radius: 24px; padding: 32px; margin-top: 40px; }
+        .items-card h3 { margin: 0 0 20px; font-size: 20px; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+        .item-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .item-tag { background: #fff; padding: 8px 16px; border-radius: 12px; font-size: 14px; font-weight: 700; border: 1px solid #d2d2d7; }
 
-        /* ローディングアニメーション */
         #loader { display: none; text-align: center; padding: 80px 0; }
-        .shimmer { width: 48px; height: 48px; border: 4px solid #f3f3f3; border-top: 4px solid var(--accent); border-radius: 50%; animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite; margin: 0 auto; }
+        .shimmer { width: 48px; height: 48px; border: 4px solid #f3f3f3; border-top: 4px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .loading-text { margin-top: 24px; font-weight: 700; color: var(--sub); font-size: 14px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
     <div class="header-minimal">
         <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> ホームへ戻る</a>
-        <div style="font-weight: 900; letter-spacing: -1px; font-family: 'Plus Jakarta Sans';">SURGE AI</div>
+        <div style="font-weight: 900; font-family: 'Plus Jakarta Sans';">SURGE AI</div>
     </div>
 
     <div class="main-container">
@@ -57,7 +65,7 @@
         
         <div class="input-group">
             <label>目的地</label>
-            <input type="text" id="dest" placeholder="例：東京、京都、北海道など">
+            <input type="text" id="dest" placeholder="例：羽田空港、秋葉原、京都など">
         </div>
 
         <div style="display: flex; gap: 20px;">
@@ -67,33 +75,36 @@
                     <option value="日帰り">日帰り</option>
                     <option value="1泊2日" selected>1泊2日</option>
                     <option value="2泊3日">2泊3日</option>
-                    <option value="3泊4日以上">3泊4日以上</option>
                 </select>
             </div>
             <div class="input-group" style="flex: 1;">
-                <label>予算目安</label>
+                <label>予算</label>
                 <select id="budget">
-                    <option value="節約">節約重視</option>
-                    <option value="標準" selected>標準的</option>
-                    <option value="贅沢">贅沢に楽しむ</option>
+                    <option value="節約">節約</option>
+                    <option value="標準" selected>標準</option>
+                    <option value="贅沢">贅沢</option>
                 </select>
             </div>
         </div>
 
         <div class="input-group">
-            <label>こだわり・要望</label>
-            <textarea id="notes" rows="4" placeholder="例：空港の見えるホテルがいい、落ち着いた空間がいい、ゆったりくつろげる静かなカフェを知りたい..."></textarea>
+            <label>こだわり</label>
+            <textarea id="notes" rows="4" placeholder="例：飛行機が見えるスポット、静かにくつろげる場所など..."></textarea>
         </div>
 
         <button class="btn-gen" onclick="generate()">AIプランを生成</button>
 
         <div id="loader">
             <div class="shimmer"></div>
-            <p class="loading-text">最適なルートを解析中...</p>
+            <p>最適なルートと持ち物を解析中...</p>
         </div>
 
         <div id="resultArea">
             <div id="mainPlan"></div>
+            <div id="itemBox" class="items-card" style="display:none;">
+                <h3><i class="fas fa-suitcase"></i> おすすめの持ち物</h3>
+                <div id="itemList" class="item-tags"></div>
+            </div>
         </div>
     </div>
 
@@ -101,26 +112,24 @@
         const WORKER_URL = "https://trip.proluce.workers.dev";
 
         async function generate() {
-            const destination = document.getElementById('dest').value;
-            if(!destination) return alert("目的地を入力してください。");
+            const dest = document.getElementById('dest').value;
+            if(!dest) return alert("目的地を入力してください。");
 
             document.getElementById('loader').style.display = 'block';
             document.getElementById('resultArea').style.display = 'none';
 
             try {
-                // AIへの指示も日本語で最適化
                 const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
-                        prompt: `${destination}への旅行。期間:${document.getElementById('duration').value}。予算:${document.getElementById('budget').value}。要望:${document.getElementById('notes').value}。出力は必ず以下のJSON形式で。{ "days": [ { "day": 1, "title": "タイトル", "events": [ { "time": "10:00", "spot": "場所", "desc": "説明" } ] } ] }`
+                        prompt: `${dest}への旅行。期間:${document.getElementById('duration').value}。予算:${document.getElementById('budget').value}。要望:${document.getElementById('notes').value}。出力は必ず以下のJSON形式で。{ "days": [ { "day": 1, "title": "タイトル", "events": [ { "time": "10:00", "spot": "場所", "desc": "説明" } ] } ], "items": ["持ち物1", "持ち物2"] }`
                     })
                 });
 
                 const rawData = await response.json();
                 let aiText = rawData.plan || (Array.isArray(rawData) ? rawData[0].generated_text : JSON.stringify(rawData));
                 
-                // JSON抽出ロジック
                 const startIdx = aiText.indexOf('{');
                 const endIdx = aiText.lastIndexOf('}');
                 const plan = JSON.parse(aiText.substring(startIdx, endIdx + 1));
@@ -128,18 +137,16 @@
                 render(plan);
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('resultArea').style.display = 'block';
-                
-                // 結果へスクロール
                 window.scrollTo({ top: document.getElementById('resultArea').offsetTop - 100, behavior: 'smooth' });
                 
             } catch (e) {
-                console.error(e);
-                alert("プランの生成中にエラーが発生しました。もう一度お試しください。");
+                alert("エラーが発生しました。");
                 document.getElementById('loader').style.display = 'none';
             }
         }
 
         function render(plan) {
+            // プラン描画
             document.getElementById('mainPlan').innerHTML = (plan.days || []).map(d => `
                 <div class="day-card">
                     <div class="day-title"><span>DAY ${d.day}</span> ${d.title}</div>
@@ -147,13 +154,22 @@
                         <div class="event-node">
                             <div class="time-badge">${e.time}</div>
                             <div class="spot-info">
-                                <h4>${e.spot}</h4>
+                                <div class="spot-header">
+                                    <h4>${e.spot}</h4>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.spot)}" target="_blank" class="btn-map"><i class="fas fa-map-marker-alt"></i> Map</a>
+                                </div>
                                 <p>${e.desc}</p>
                             </div>
                         </div>
                     `).join('')}
                 </div>
             `).join('');
+
+            // 持ち物描画
+            if(plan.items && plan.items.length > 0) {
+                document.getElementById('itemBox').style.display = 'block';
+                document.getElementById('itemList').innerHTML = plan.items.map(i => `<div class="item-tag">${i}</div>`).join('');
+            }
         }
     </script>
 </body>
