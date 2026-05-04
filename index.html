@@ -68,6 +68,222 @@
         .section-header h2 { font-size: 32px; font-weight: 900; letter-spacing: -1px; }
         .section-header p { color: var(--sub); margin-top: 10px; font-weight: 500; }
 
+        /* お知らせセクションのスタイル */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.news-item {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.news-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: var(--accent);
+}
+
+.news-meta {
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.news-date {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--sub);
+    font-family: 'Plus Jakarta Sans';
+}
+
+.news-category {
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-content h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.news-content p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--sub);
+    line-height: 1.6;
+}
+
+.news-arrow {
+    color: #d2d2d7;
+    transition: 0.3s;
+}
+
+.news-item:hover .news-arrow {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+    .news-arrow {
+        display: none;
+    }
+}
+
+        /* ランキングセクションのスタイル */
+.ranking-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ranking-row {
+    background: #fff;
+    padding: 20px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.ranking-row:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: var(--accent);
+}
+
+.rank-num {
+    font-family: 'Plus Jakarta Sans';
+    font-size: 32px;
+    font-weight: 900;
+    color: #e5e5e7;
+    min-width: 50px;
+    font-style: italic;
+}
+
+.ranking-row:hover .rank-num {
+    color: var(--accent);
+}
+
+.rank-img-mini {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f7;
+    flex-shrink: 0;
+}
+
+.rank-main {
+    flex: 1;
+}
+
+.rank-location {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.rank-location h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.rank-badge {
+    font-size: 10px;
+    font-weight: 800;
+    background: #f0f0f5;
+    color: var(--sub);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.rank-main p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--sub);
+    line-height: 1.5;
+}
+
+.rank-stats {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stats-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--sub);
+    text-align: right;
+}
+
+.stats-bar {
+    width: 100%;
+    height: 6px;
+    background: #f0f0f5;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.stats-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 3px;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .ranking-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .rank-stats {
+        width: 100%;
+    }
+    .stats-label {
+        text-align: left;
+    }
+    .rank-img-mini {
+        width: 100%;
+        height: 150px;
+    }
+}
+
         /* おすすめ・ランキンググリッド */
         .ranking-grid {
             display: grid;
@@ -101,6 +317,23 @@
         .feature-text h3 { margin: 0 0 5px; font-size: 20px; font-weight: 900; }
         .feature-text p { margin: 0; color: var(--sub); font-size: 14px; }
 
+        /* FAQ内のキーワードリンク（点線スタイル） */
+.faq-link {
+    color: var(--accent);
+    font-weight: 800;
+    cursor: pointer;
+    border-bottom: 2px dotted var(--accent); /* 下に点線を配置 */
+    padding: 0 2px;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.faq-link:hover {
+    background: rgba(0, 113, 227, 0.05);
+    border-bottom-style: solid; /* ホバー時に実線にする演出 */
+    transform: translateY(-1px);
+}
+
         footer { background: #fff; padding: 60px 5%; text-align: center; border-top: 1px solid #e5e5e7; }
     </style>
 </head>
@@ -123,28 +356,102 @@
         </div>
     </header>
 
-    <section class="section">
-        <div class="section-header">
-            <h2>主要な機能</h2>
-            <p>SURGEが提供する知的な旅のツール群</p>
-        </div>
-        
-        <div class="feature-box">
-            <div class="feature-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
-            <div class="feature-text">
-                <h3>AIルート生成</h3>
-                <p>目的地を入れるだけで、あなたの好みに合わせた1日の流れを自動構築します。</p>
-            </div>
-        </div>
+<section class="section" style="padding-top: 0;">
+    <div class="section-header">
+        <h2>お知らせ</h2>
+        <p>SURGEの最新アップデートと旅行ガイド</p>
+    </div>
 
-        <div class="feature-box">
-            <div class="feature-icon"><i class="fas fa-plane"></i></div>
-            <div class="feature-text">
-                <h3>フライト・インテリジェンス</h3>
-                <p>航空機ファン必見の撮影スポットや、効率的なマイル移行ルートを解析。</p>
+    <div class="news-list">
+     
+        <a href="article_01.html" class="news-item">
+            <div class="news-meta">
+                <span class="news-date">2026.05.04</span>
+                <span class="news-category">UPDATE</span>
             </div>
-        </div>
-    </section>
+            <div class="news-content">
+                <h3>SURGE v2.5 リリース：プラン生成アルゴリズムの刷新</h3>
+                <p>AIの解析精度が向上し、より個人の好みに最適化されたルート提案が可能になりました。</p>
+            </div>
+            <i class="fas fa-chevron-right news-arrow"></i>
+        </a>
+
+      
+        <a href="article_02.html" class="news-item">
+            <div class="news-meta">
+                <span class="news-date">2026.04.28</span>
+                <span class="news-category">GUIDE</span>
+            </div>
+            <div class="news-content">
+                <h3>【保存版】ANA Payを活用したマイル還元の最短ルート</h3>
+                <p>2026年最新。決済アプリを駆使して効率よくポイントを貯める技を紹介します。</p>
+            </div>
+            <i class="fas fa-chevron-right news-arrow"></i>
+        </a>
+    </div>
+</section>
+
+    <!-- ランキングセクション -->
+<section class="section" style="padding-top: 0;">
+    <div class="section-header">
+        <h2>人気ランキング</h2>
+        <p>SURGEユーザーに選ばれている今注目の目的地</p>
+    </div>
+
+    <div class="ranking-container">
+        <!-- 1位 -->
+        <a href="planner.html?dest=東京" class="ranking-row">
+            <div class="rank-num">01</div>
+            <div class="rank-img-mini" style="background-image: url('ここに東京の写真URL');"></div>
+            <div class="rank-main">
+                <div class="rank-location">
+                    <h3>東京 / Tokyo</h3>
+                    <span class="rank-badge">トレンド 1位</span>
+                </div>
+                <p>最先端のテックスポットと伝統が交差する、SURGEのメインフィールド。</p>
+            </div>
+            <div class="rank-stats">
+                <span class="stats-label">注目度</span>
+                <div class="stats-bar"><div class="stats-fill" style="width: 95%;"></div></div>
+            </div>
+        </a>
+
+        <!-- 2位 -->
+        <a href="planner.html?dest=北海道" class="ranking-row">
+            <div class="rank-num">02</div>
+            <div class="rank-img-mini" style="background-image: url('ここに北海道の写真URL');"></div>
+            <div class="rank-main">
+                <div class="rank-location">
+                    <h3>北海道 / Hokkaido</h3>
+                    <span class="rank-badge">航空ファンに人気</span>
+                </div>
+                <p>新千歳空港の充実度と、広大な自然の中での開発合宿に最適。</p>
+            </div>
+            <div class="rank-stats">
+                <span class="stats-label">注目度</span>
+                <div class="stats-bar"><div class="stats-fill" style="width: 88%;"></div></div>
+            </div>
+        </a>
+
+        <!-- 3位 -->
+        <a href="planner.html?dest=福岡" class="ranking-row">
+            <div class="rank-num">03</div>
+            <div class="rank-num-silver"></div>
+            <div class="rank-img-mini" style="background-image: url('ここに福岡の写真URL');"></div>
+            <div class="rank-main">
+                <div class="rank-location">
+                    <h3>福岡 / Fukuoka</h3>
+                    <span class="rank-badge">グルメ & ワーク</span>
+                </div>
+                <p>空港から街へのアクセスは日本一。食と作業環境のバランスが抜群。</p>
+            </div>
+            <div class="rank-stats">
+                <span class="stats-label">注目度</span>
+                <div class="stats-bar"><div class="stats-fill" style="width: 82%;"></div></div>
+            </div>
+        </a>
+    </div>
+</section>
 
     <!-- おすすめ・ランキングセクション -->
     <section class="section" style="background: #fff; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
@@ -185,6 +492,32 @@
             </a>
         </div>
     </section>
+
+    <!-- FAQセクション（キーワード連携版） -->
+<section class="section" style="padding-top: 0;">
+    <div class="section-header">
+        <h2>よくあるご質問</h2>
+        <p>SURGEをご利用いただく際のアドバイス</p>
+    </div>
+
+    <div class="faq-container">
+        <!-- 質問1 -->
+        <details class="faq-item">
+            <summary>車いすを利用していますが、おすすめの観光場所はありますか？ <i class="fas fa-plus"></i></summary>
+            <div class="faq-answer">
+                <p>はい、もちろんです。SURGEではアクセシビリティ情報の解析も進めています。例えば、<span class="faq-link" onclick="location.href='planner.html?dest=東京'">東京</span>周辺は整備が進み、アクセスしやすいルートが増えています。AIプランナーの要望欄に「<span class="faq-link" onclick="location.href='planner.html?notes=バリアフリー優先で、車いすでも移動しやすいルートを教えてください。'">バリアフリー優先</span>」と入力していただくと、より最適なルートを提案します。</p>
+            </div>
+        </details>
+
+        <!-- 質問2 -->
+        <details class="faq-item">
+            <summary>静かにプログラミングができる場所はありますか？ <i class="fas fa-plus"></i></summary>
+            <div class="faq-answer">
+                <p>はい。特に<span class="faq-link" onclick="location.href='planner.html?dest=秋葉原&notes=エンジニア向けの静かなカフェやコワーキングスペースを含めてください。'">秋葉原</span>や渋谷エリアには、電源と高速Wi-Fiを完備したスポットが集中しています。</p>
+            </div>
+        </details>
+    </div>
+</section>
 
     <footer>
         <div class="logo">SURGE</div>
