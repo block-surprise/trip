@@ -21,8 +21,10 @@
             background: var(--bg); 
             color: var(--text); 
             line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* ナビゲーション */
         nav { 
             position: sticky; 
             top: 0; 
@@ -36,7 +38,10 @@
             border-bottom: 1px solid #f2f2f7;
         }
         .logo { font-weight: 900; font-size: 20px; text-decoration: none; color: #000; font-family: 'Plus Jakarta Sans'; }
+        .nav-back { text-decoration: none; color: var(--text); font-weight: 700; font-size: 14px; transition: 0.2s; }
+        .nav-back:hover { color: var(--accent); }
 
+        /* 記事ヘッダー */
         .article-header {
             padding: 80px 5% 40px;
             max-width: 800px;
@@ -44,33 +49,41 @@
             text-align: center;
         }
         .category-tag {
-            color: #ff9500; /* TIPS用カラー */
+            color: #ff9500;
             font-weight: 800;
             font-size: 14px;
             letter-spacing: 2px;
             display: block;
             margin-bottom: 15px;
+            font-family: 'Plus Jakarta Sans';
         }
         h1 {
-            font-size: clamp(30px, 5vw, 42px);
+            font-size: clamp(28px, 5vw, 42px);
             font-weight: 900;
             line-height: 1.3;
             margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
-        .post-date { color: var(--sub); font-size: 14px; }
+        .post-date { color: var(--sub); font-size: 14px; font-family: 'Plus Jakarta Sans'; }
 
-        .featured-image {
+        /* アイキャッチ画像 */
+        .featured-image-container {
             width: 100%;
             max-width: 1000px;
-            height: 450px;
             margin: 0 auto 60px;
-            background-size: cover;
-            background-position: center;
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+        .featured-image-container img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
             border-radius: 30px;
-            background-image: url('https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=1000&q=80'); /* 空港のイメージ */
             background-color: var(--light-bg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
+        /* 記事本文 */
         .content-body {
             max-width: 750px;
             margin: 0 auto;
@@ -83,12 +96,12 @@
             margin: 50px 0 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .content-body h2::before {
             content: '';
             width: 4px;
-            height: 24px;
+            height: 28px;
             background: var(--accent);
             border-radius: 2px;
         }
@@ -105,19 +118,21 @@
 
         .info-box {
             background: #f8f8fa;
-            border-left: 4px solid #d2d2d7;
+            border-left: 4px solid var(--accent);
             padding: 25px;
             border-radius: 0 15px 15px 0;
             margin: 40px 0;
         }
 
+        /* CTAセクション */
         .article-cta {
             background: linear-gradient(135deg, #f5f5f7 0%, #e5e5e7 100%);
             border-radius: 30px;
-            padding: 50px;
+            padding: 50px 30px;
             margin: 80px 0;
             text-align: center;
         }
+        .article-cta h3 { font-size: 22px; font-weight: 900; margin-bottom: 15px; }
         .btn-plan {
             display: inline-block;
             background: var(--accent);
@@ -127,17 +142,26 @@
             border-radius: 40px;
             font-weight: 800;
             margin-top: 25px;
+            transition: 0.3s;
             box-shadow: 0 10px 30px rgba(0, 113, 227, 0.2);
         }
+        .btn-plan:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 113, 227, 0.3); }
 
         footer { padding: 60px 5%; border-top: 1px solid #f2f2f7; text-align: center; color: var(--sub); font-size: 14px; }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .featured-image-container img { height: 250px; border-radius: 20px; }
+            .article-header { padding: 50px 5% 30px; }
+            .article-cta { padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="https://trip.surge.f5.si/" class="logo">SURGE</a>
-        <a href="https://trip.surge.f5.si/" style="text-decoration: none; color: var(--text); font-weight: 700; font-size: 14px;"><i class="fas fa-arrow-left"></i> 戻る</a>
+        <a href="https://trip.surge.f5.si/" class="logo">SURGE travel</a>
+        <a href="https://trip.surge.f5.si/" class="nav-back"><i class="fas fa-arrow-left"></i> 戻る</a>
     </nav>
 
     <article>
@@ -147,7 +171,10 @@
             <div class="post-date">2026.05.01 公開</div>
         </header>
 
-        <div class="featured-image"></div>
+        <div class="featured-image-container">
+            <!-- 確実に表示されるようimgタグを使用 -->
+            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=1200&q=80" alt="空港ターミナルの様子">
+        </div>
 
         <div class="content-body">
             <p>
@@ -160,8 +187,8 @@
             </p>
 
             <div class="info-box">
-                <strong>💡 プロのアドバイス：</strong>
-                多くの人がメインの保安検査場に並びますが、羽田空港第2ターミナルのように、端にある検査場の方が空いているケースが多々あります。
+                <strong>💡 プロのアドバイス：</strong><br>
+                多くの人がメインの保安検査場に並びますが、羽田空港第2ターミナルのように、端にある検査場の方が空いているケースが多々あります。最新の待ち時間は空港公式アプリでも確認可能です。
             </div>
 
             <h2>2. 展望デッキという「最高のオフィス」</h2>
