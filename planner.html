@@ -180,6 +180,30 @@ window.onload = function() {
         document.getElementById('dest').value = destParam;
     }
 }
+
+        window.onload = function() {
+    // URLのパラメータ（?dest=...&notes=...）を取得
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // 1. 目的地の入力欄（id="dest"）への反映
+    const destParam = urlParams.get('dest');
+    if (destParam) {
+        const destInput = document.getElementById('dest');
+        if (destInput) {
+            destInput.value = destParam;
+        }
+    }
+    
+    // 2. こだわり・要望の入力欄（id="notes"）への反映
+    const notesParam = urlParams.get('notes');
+    if (notesParam) {
+        const notesInput = document.getElementById('notes');
+        if (notesInput) {
+            notesInput.value = notesParam;
+        }
+    }
+
+};
     </script>
 </body>
 </html>
