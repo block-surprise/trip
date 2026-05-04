@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SURGE v2.5 リリースノート | SURGE Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --accent: #0071e3; 
+            --bg: #ffffff; 
+            --text: #1d1d1f; 
+            --sub: #86868b; 
+            --light-bg: #f5f5f7;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Noto Sans JP', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.8;
+        }
+
+        /* ナビゲーション */
+        nav { 
+            position: sticky; 
+            top: 0; 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(20px); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000;
+            border-bottom: 1px solid #f2f2f7;
+        }
+        .logo { font-weight: 900; font-size: 20px; text-decoration: none; color: #000; font-family: 'Plus Jakarta Sans'; }
+
+        /* 記事ヘッダー */
+        .article-header {
+            padding: 80px 5% 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .category-tag {
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .post-date { color: var(--sub); font-size: 14px; font-weight: 500; }
+
+        /* アイキャッチ画像 */
+        .featured-image {
+            width: 100%;
+            max-width: 1000px;
+            height: 500px;
+            margin: 0 auto 60px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+            background-image: url('ここにメイン写真のURL'); /* あなたが選ぶ写真 */
+            background-color: var(--light-bg);
+        }
+
+        /* 記事本文 */
+        .content-body {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 5%;
+            font-size: 17px;
+        }
+        .content-body h2 {
+            font-size: 28px;
+            font-weight: 900;
+            margin: 60px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--light-bg);
+        }
+        .content-body p { margin-bottom: 30px; }
+
+        /* 文中のプランナー連携（点線スタイル） */
+        .text-link {
+            color: var(--accent);
+            font-weight: 800;
+            cursor: pointer;
+            border-bottom: 2px dotted var(--accent);
+            padding: 0 2px;
+            transition: 0.2s;
+        }
+        .text-link:hover { background: rgba(0, 113, 227, 0.05); border-bottom-style: solid; }
+
+        /* 記事末尾のCTAカード */
+        .article-cta {
+            background: var(--light-bg);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 80px 0;
+            text-align: center;
+        }
+        .article-cta h3 { font-weight: 900; margin-top: 0; }
+        .btn-plan {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 800;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn-plan:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,113,227,0.3); }
+
+        footer { padding: 60px 5%; border-top: 1px solid #f2f2f7; text-align: center; color: var(--sub); font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">SURGE</a>
+        <a href="index.html" style="text-decoration: none; color: var(--text); font-weight: 700; font-size: 14px;"><i class="fas fa-arrow-left"></i> 戻る</a>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <span class="category-tag">UPDATE</span>
+            <h1>SURGE v2.5 リリース：<br>プラン生成精度の向上</h1>
+            <div class="post-date">2026.05.04 発信</div>
+        </header>
+
+        <div class="featured-image"></div>
+
+        <div class="content-body">
+            <p>
+                SURGEプロジェクトは、本日バージョン2.5をリリースしました。今回のアップデートでは、AIによるルート解析アルゴリズムを根本から見直し、ユーザーの「こだわり」をより深く反映できるようになりました。
+            </p>
+
+            <h2>新しい解析エンジン</h2>
+            <p>
+                従来のエンジンでは難しかった、複雑な要望の組み合わせが可能になりました。
+                例えば、<span class="text-link" onclick="location.href='planner.html?dest=東京&notes=車いすでも移動しやすくて、景色が綺麗な場所を教えて。'">「車いすでの移動」と「景観」を両立させたプラン</span>など、アクセシビリティを重視した提案もよりスムーズに行えます。
+            </p>
+
+            <p>
+                また、航空ファン向けに、空港内での<span class="text-link" onclick="location.href='planner.html?dest=羽田空港&notes=飛行機を撮影するのに最適なスポットを巡るプラン。'">「撮影スポット巡り」</span>に特化したプランニング機能も強化されています。
+            </p>
+
+            <div class="article-cta">
+                <h3>実際に新しいAIを試してみませんか？</h3>
+                <p>目的地を入力するだけで、あなただけの知的な旅が始まります。</p>
+                <a href="planner.html" class="btn-plan">今すぐプランを作る</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <p>© 2026 SURGE Travel Project.</p>
+    </footer>
+
+    <script>
+        // ここにクリックイベントなどのJSを追加可能
+    </script>
+</body>
+</html>
