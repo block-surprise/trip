@@ -2,63 +2,85 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>AI Trip Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SURGE Travel - AI旅行計画</title>
     <style>
-        body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; background: #f4f4f9; }
-        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        textarea { width: 100%; height: 100px; margin-top: 10px; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-        #result { margin-top: 20px; white-space: pre-wrap; line-height: 1.6; }
+        :root { --primary: #0070f3; --bg: #f0f2f5; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        h1 { color: var(--primary); text-align: center; margin-bottom: 30px; }
+        
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        textarea { width: 100%; height: 100px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; resize: vertical; }
+        
+        button { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 16px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #ccc; }
+
+        #result { margin-top: 30px; padding: 20px; border-top: 2px solid #eee; line-height: 1.8; color: #444; }
+        .loading { text-align: center; display: none; }
+        
+        /* Markdownっぽく見せるための簡易装飾 */
+        .plan-content { white-space: pre-wrap; }
+        .plan-content h3 { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h2>🌍 AI旅行プランナー</h2>
-    <p>どこに、誰と、何日間行きたいですか？（例：京都に友達と2一泊二日、予算少なめ）</p>
-    <textarea id="userInput" placeholder="例：北海道で美味しい海鮮を食べる2泊3日の旅"></textarea>
-    <br><br>
-    <button onclick="generatePlan()">プランを作成する</button>
+<div class="container">
+    <h1>🌍 SURGE Travel</h1>
+    
+    <div class="input-group">
+        <label>どんな旅行にしたいですか？</label>
+        <textarea id="promptInput" placeholder="例：来月の週末、予算3万円で東京から行ける温泉旅行を計画して。食べ歩きもしたいな。"></textarea>
+    </div>
 
-    <div id="result">ここにプランが表示されます...</div>
+    <button id="generateBtn" onclick="sendToAI()">AIにプランを作成させる</button>
+
+    <div id="loading" class="loading">🚢 最高のルートを計算中...</div>
+    <div id="result"></div>
 </div>
 
 <script>
-async function generatePlan() {
-    const input = document.getElementById('userInput').value;
-    const resultDiv = document.getElementById('result');
-    
-    if (!input) return alert("内容を入力してください");
+    // あなたがデプロイしたCloudflare WorkersのURLに書き換えてください
+    const WORKER_URL = "https://your-worker-name.workers.dev";
 
-    resultDiv.innerText = "AIが一生懸命考えています...";
+    async function sendToAI() {
+        const prompt = document.querySelector('#promptInput').value;
+        const btn = document.querySelector('#generateBtn');
+        const resultDiv = document.querySelector('#result');
+        const loading = document.querySelector('#loading');
 
-    // 本来はここにAPIキーを入れて通信します
-    // 今回は「SURGE」開発者であるあなた向けに、構造のイメージを出力します
-    try {
-        // ※実際には fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY', ...) を呼び出します
-        
-        // 擬似的なレスポンスのシミュレーション
-        setTimeout(() => {
-            resultDiv.innerHTML = `
-                <h3>🗺️ 提案されたプラン</h3>
-                <hr>
-                <strong>【1日目：到着と散策】</strong><br>
-                ・10:00 〇〇駅到着<br>
-                ・12:00 地元の人気店でランチ<br>
-                ・15:00 観光スポットAを巡る<br><br>
-                <strong>【2日目：体験と帰路】</strong><br>
-                ・09:00 ホテル出発<br>
-                ・11:00 アクティビティ体験<br>
-                ・16:00 お土産購入、解散<br>
-                <hr>
-                <p>※実際のAPI連携にはGoogle AI Studioで発行したAPIキーが必要です。</p>
-            `;
-        }, 1500);
+        if (!prompt) return alert("要望を入力してください！");
 
-    } catch (error) {
-        resultDiv.innerText = "エラーが発生しました。";
+        // 状態のリセット
+        btn.disabled = true;
+        loading.style.display = "block";
+        resultDiv.innerHTML = "";
+
+        try {
+            const response = await fetch(WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: prompt })
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                resultDiv.innerHTML = `<p style="color:red;">エラー: ${data.error}</p>`;
+            } else {
+                // AIの回答を表示（簡易的に整形）
+                resultDiv.innerHTML = `<h2>📋 提案されたプラン</h2><div class="plan-content">${data.plan}</div>`;
+            }
+        } catch (err) {
+            resultDiv.innerHTML = `<p style="color:red;">通信に失敗しました。</p>`;
+        } finally {
+            btn.disabled = false;
+            loading.style.display = "none";
+        }
     }
-}
 </script>
 
 </body>
