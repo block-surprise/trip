@@ -26,42 +26,56 @@
             font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
             margin: 0; padding: 20px; min-height: 100vh;
             -webkit-tap-highlight-color: transparent;
+            padding-bottom: 80px; /* ナビバー用 */
         }
 
         .container { max-width: 1000px; margin: 0 auto; }
 
-        header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
+        /* Navigation Tab */
+        .nav-tabs {
+            display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;
+            position: sticky; top: 10px; z-index: 100;
+        }
+        .nav-btn {
+            background: var(--card-bg); backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border); padding: 12px 24px;
+            border-radius: 40px; font-weight: 800; cursor: pointer;
+            color: var(--text-secondary); transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .nav-btn.active {
+            background: var(--accent-color); color: white; border-color: var(--accent-color);
+        }
+
+        header { text-align: center; margin-bottom: 30px; padding-top: 10px; }
         header h1 { font-size: clamp(32px, 8vw, 42px); font-weight: 800; margin: 0; color: var(--text-primary); letter-spacing: -1px; }
         header p { color: var(--text-secondary); font-size: 14px; margin-top: 8px; }
 
-        /* Bento Grid */
-        .bento-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 30px;
+        /* Home View Styles */
+        .section-title { font-size: 18px; font-weight: 800; margin: 24px 0 16px 10px; display: flex; align-items: center; gap: 8px; }
+        
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .news-card {
+            background: var(--card-bg); border-radius: var(--radius-xl); padding: 20px;
+            border: 2px solid var(--card-border); box-shadow: 0 8px 32px rgba(0,0,0,0.05);
         }
+        .news-date { font-size: 11px; font-weight: 800; color: var(--accent-color); margin-bottom: 5px; }
+        .news-card h3 { margin: 0 0 8px 0; font-size: 16px; }
+        .news-card p { margin: 0; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
+        /* Bento Grid (Planner) */
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 30px; }
         .bento-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 2px solid var(--card-border);
-            border-radius: var(--radius-xl);
-            padding: 18px;
+            background: var(--card-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 2px solid var(--card-border); border-radius: var(--radius-xl); padding: 18px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.05);
         }
-
-        .bento-card label {
-            display: block; font-size: 10px; font-weight: 800; color: var(--accent-color);
-            text-transform: uppercase; margin-bottom: 6px;
-        }
-
+        .bento-card label { display: block; font-size: 10px; font-weight: 800; color: var(--accent-color); text-transform: uppercase; margin-bottom: 6px; }
+        
         input, select, textarea {
             width: 100%; border: none; background: transparent; font-size: 16px; 
             font-weight: 600; color: var(--text-primary); outline: none; font-family: inherit;
-            padding: 4px 0;
         }
-
-        /* スマホでの入力時ズーム防止 */
-        input:focus, select:focus, textarea:focus { font-size: 16px; }
 
         .col-2 { grid-column: span 2; }
         .col-4 { grid-column: span 4; }
@@ -71,18 +85,12 @@
             border-radius: var(--radius-xl); padding: 20px; border: none;
             font-size: 18px; font-weight: 800; cursor: pointer; transition: 0.3s;
             box-shadow: 0 4px 15px rgba(0,113,227,0.3);
-            margin-top: 8px;
         }
-        .btn-generate:active { transform: scale(0.98); }
 
-        /* Results Area */
+        /* Result Area */
         #resultArea { display: none; margin-top: 30px; }
-        .day-box {
-            background: white; border-radius: var(--radius-xl); padding: 24px;
-            margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
+        .day-box { background: white; border-radius: var(--radius-xl); padding: 24px; margin-bottom: 16px; }
         .day-title { font-size: 20px; font-weight: 800; color: var(--accent-color); margin-bottom: 16px; }
-
         .event { display: flex; gap: 15px; margin-bottom: 20px; border-left: 3px solid #eee; padding-left: 15px; }
         .time { font-weight: 800; color: var(--text-primary); min-width: 50px; font-size: 14px; }
         .spot-name { font-weight: 700; font-size: 16px; display: block; }
@@ -90,78 +98,125 @@
 
         .info-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
         @media (min-width: 768px) { .info-grid { grid-template-columns: repeat(3, 1fr); } }
-
         .info-card { background: #fff; padding: 18px; border-radius: var(--radius-xl); border-top: 4px solid var(--accent-color); }
         .info-card h4 { margin: 0 0 10px 0; font-size: 14px; color: var(--accent-color); display: flex; align-items: center; gap: 8px; }
 
-        /* Loader */
         #loader { display: none; text-align: center; padding: 40px; }
         .spinner { width: 40px; height: 40px; border: 4px solid #eee; border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Mobile specific adjustments */
         @media (max-width: 600px) {
-            body { padding: 16px; }
-            .bento-grid { grid-template-columns: 1fr; gap: 10px; }
+            .bento-grid { grid-template-columns: 1fr; }
             .col-2, .col-4 { grid-column: span 1; }
-            .bento-card { padding: 16px; }
-            .day-box { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <nav class="nav-tabs">
+        <button class="nav-btn active" onclick="showView('home')">Home</button>
+        <button class="nav-btn" onclick="showView('planner')">Planner</button>
+    </nav>
+
     <header>
         <h1>SURGE Travel</h1>
         <p>AIが創る、洗練された旅のインテリジェンス</p>
     </header>
 
-    <div class="bento-grid">
-        <div class="bento-card col-2">
-            <label>目的地</label>
-            <input type="text" id="dest" placeholder="どこへ行きますか？">
+    <!-- Home View -->
+    <div id="homeView">
+        <div class="section-title"><i class="fas fa-bullhorn"></i> お知らせ</div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-date">2026.05.04</div>
+                <h3>SURGE Travel v2.0 公開</h3>
+                <p>モバイル対応を強化し、より直感的なプラン生成が可能になりました。</p>
+            </div>
+            <div class="news-card">
+                <div class="news-date">2026.04.20</div>
+                <h3>マニア機能の拡充</h3>
+                <p>航空ファンや文房具愛好家向けの解析アルゴリズムをアップデートしました。</p>
+            </div>
         </div>
-        <div class="bento-card">
-            <label>日数</label>
-            <select id="duration">
-                <option value="1日">日帰り</option>
-                <option value="1泊2日" selected>1泊2日</option>
-                <option value="2泊3日">2泊3日</option>
-            </select>
+
+        <div class="section-title"><i class="fas fa-star"></i> おすすめの目的地</div>
+        <div class="news-grid">
+            <div class="news-card" style="cursor:pointer" onclick="quickFill('羽田空港')">
+                <div class="news-date">HOT</div>
+                <h3>羽田空港周辺</h3>
+                <p>滑走路が見えるレストランや、最新の撮影スポットを巡る旅。</p>
+            </div>
+            <div class="news-card" style="cursor:pointer" onclick="quickFill('銀座')">
+                <div class="news-date">RECOMMEND</div>
+                <h3>銀座 文房具巡り</h3>
+                <p>伊東屋など、世界中の筆記具が集まる聖地を歩くプラン。</p>
+            </div>
         </div>
-        <div class="bento-card">
-            <label>予算</label>
-            <select id="budget">
-                <option value="学生・節約">節約</option>
-                <option value="標準">標準</option>
-                <option value="贅沢">贅沢</option>
-            </select>
-        </div>
-        <div class="bento-card col-4">
-            <label>こだわり（文房具、空港、撮影スポットなど）</label>
-            <textarea id="notes" rows="3" placeholder="例：0.5mmのシャーペンが充実した店、滑走路が見える場所..."></textarea>
-        </div>
-        <button class="btn-generate" id="runBtn" onclick="generate()">旅行プランを生成する</button>
     </div>
 
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>SURGE AI が解析中...</p>
-    </div>
+    <!-- Planner View -->
+    <div id="plannerView" style="display: none;">
+        <div class="bento-grid">
+            <div class="bento-card col-2">
+                <label>目的地</label>
+                <input type="text" id="dest" placeholder="どこへ行きますか？">
+            </div>
+            <div class="bento-card">
+                <label>日数</label>
+                <select id="duration">
+                    <option value="1日">日帰り</option>
+                    <option value="1泊2日" selected>1泊2日</option>
+                    <option value="2泊3日">2泊3日</option>
+                </select>
+            </div>
+            <div class="bento-card">
+                <label>予算</label>
+                <select id="budget">
+                    <option value="学生・節約">節約</option>
+                    <option value="標準">標準</option>
+                    <option value="贅沢">贅沢</option>
+                </select>
+            </div>
+            <div class="bento-card col-4">
+                <label>こだわり（文房具、空港、撮影スポットなど）</label>
+                <textarea id="notes" rows="3" placeholder="例：0.5mmのシャーペンが充実した店、滑走路が見える場所..."></textarea>
+            </div>
+            <button class="btn-generate" id="runBtn" onclick="generate()">旅行プランを生成する</button>
+        </div>
 
-    <div id="resultArea">
-        <div id="mainPlan"></div>
-        <div class="info-grid">
-            <div class="info-card"><h4><i class="fas fa-coins"></i> 予算目安</h4><div id="budgetBox"></div></div>
-            <div class="info-card"><h4><i class="fas fa-briefcase"></i> 持ち物</h4><div id="itemBox"></div></div>
-            <div class="info-card"><h4><i class="fas fa-lightbulb"></i> マニア・ノート</h4><div id="maniaBox"></div></div>
+        <div id="loader">
+            <div class="spinner"></div>
+            <p>SURGE AI が解析中...</p>
+        </div>
+
+        <div id="resultArea">
+            <div id="mainPlan"></div>
+            <div class="info-grid">
+                <div class="info-card"><h4><i class="fas fa-coins"></i> 予算目安</h4><div id="budgetBox"></div></div>
+                <div class="info-card"><h4><i class="fas fa-briefcase"></i> 持ち物</h4><div id="itemBox"></div></div>
+                <div class="info-card"><h4><i class="fas fa-lightbulb"></i> マニア・ノート</h4><div id="maniaBox"></div></div>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
     const WORKER_URL = "https://trip.proluce.workers.dev";
+
+    function showView(view) {
+        document.getElementById('homeView').style.display = view === 'home' ? 'block' : 'none';
+        document.getElementById('plannerView').style.display = view === 'planner' ? 'block' : 'none';
+        
+        const btns = document.querySelectorAll('.nav-btn');
+        btns[0].classList.toggle('active', view === 'home');
+        btns[1].classList.toggle('active', view === 'planner');
+    }
+
+    function quickFill(place) {
+        document.getElementById('dest').value = place;
+        showView('planner');
+    }
 
     async function generate() {
         const destination = document.getElementById('dest').value;
@@ -174,9 +229,6 @@
         btn.disabled = true;
         loader.style.display = 'block';
         result.style.display = 'none';
-
-        // スムーズにローダーまでスクロール
-        loader.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         try {
             const response = await fetch(WORKER_URL, {
@@ -192,18 +244,14 @@
             
             const startIdx = aiText.indexOf('{');
             const endIdx = aiText.lastIndexOf('}');
-            if (startIdx === -1 || endIdx === -1) throw new Error("AIの返答にJSONが含まれていませんでした。");
-            
             const jsonString = aiText.substring(startIdx, endIdx + 1);
             const plan = JSON.parse(jsonString);
 
             render(plan);
             loader.style.display = 'none';
             result.style.display = 'block';
-
         } catch (e) {
-            console.error(e);
-            alert("解析に失敗しました。エラー: " + e.message);
+            alert("エラー: " + e.message);
             loader.style.display = 'none';
         } finally {
             btn.disabled = false;
@@ -228,7 +276,6 @@
 
         document.getElementById('budgetBox').innerHTML = (plan.budget_breakdown || []).map(b => `<div style="font-size:13px; margin-bottom:5px;">• ${b}</div>`).join('');
         document.getElementById('itemBox').innerHTML = (plan.items || []).map(i => `<div style="font-size:13px; margin-bottom:5px;">□ ${i}</div>`).join('');
-        document.getElementById('maniaBox').style.fontSize = "13px";
         document.getElementById('maniaBox').innerText = plan.mania_point || "なし";
     }
 </script>
