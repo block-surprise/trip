@@ -3,85 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planner | SURGE Intelligence</title>
+    <title>プランナー | SURGE Intelligence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #0071e3; --bg: #ffffff; --card: #f5f5f7; }
-        body { margin: 0; font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif; background: var(--bg); color: #1d1d1f; }
-        .header-minimal { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .back-link { text-decoration: none; color: #86868b; font-weight: 600; font-size: 14px; }
+        :root { --accent: #0071e3; --bg: #ffffff; --card: #f5f5f7; --text: #1d1d1f; }
+        body { margin: 0; font-family: 'Noto Sans JP', 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
         
-        .main-container { max-width: 800px; margin: 0 auto; padding: 0 20px 100px; }
-        h2 { font-size: 32px; font-weight: 900; margin-bottom: 40px; letter-spacing: -1px; }
+        .header-minimal { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f2f2f7; }
+        .back-link { text-decoration: none; color: #86868b; font-weight: 700; font-size: 14px; transition: 0.3s; }
+        .back-link:hover { color: var(--text); }
+        
+        .main-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 100px; }
+        h2 { font-size: 32px; font-weight: 900; margin-bottom: 48px; letter-spacing: -1px; }
 
-        .input-group { margin-bottom: 30px; }
-        .input-group label { display: block; font-size: 12px; font-weight: 800; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; }
-        input, select, textarea { width: 100%; border: 1.5px solid #d2d2d7; border-radius: 16px; padding: 18px; font-size: 16px; font-weight: 600; box-sizing: border-box; outline: none; transition: 0.3s; font-family: inherit; }
-        input:focus { border-color: var(--accent); }
+        .input-group { margin-bottom: 32px; }
+        .input-group label { display: block; font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 12px; letter-spacing: 1px; }
+        input, select, textarea { width: 100%; border: 1.5px solid #d2d2d7; border-radius: 16px; padding: 18px; font-size: 16px; font-weight: 500; box-sizing: border-box; outline: none; transition: 0.3s; font-family: inherit; background: #fff; }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,113,227,0.1); }
 
-        .btn-gen { width: 100%; background: var(--accent); color: white; border: none; padding: 22px; border-radius: 20px; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: 0 10px 20px rgba(0,113,227,0.2); transition: 0.3s; }
-        .btn-gen:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(0,113,227,0.3); }
+        .btn-gen { width: 100%; background: #000; color: white; border: none; padding: 22px; border-radius: 20px; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .btn-gen:hover { transform: translateY(-2px); background: var(--accent); box-shadow: 0 15px 30px rgba(0,113,227,0.3); }
 
-        /* Result Area */
-        #resultArea { display: none; margin-top: 60px; border-top: 1px solid #d2d2d7; padding-top: 40px; }
-        .day-card { margin-bottom: 40px; }
-        .day-title { font-size: 24px; font-weight: 800; margin-bottom: 25px; }
-        .event-node { display: flex; gap: 30px; margin-bottom: 30px; position: relative; }
+        /* 結果表示エリア */
+        #resultArea { display: none; margin-top: 80px; border-top: 2px solid #f2f2f7; padding-top: 60px; }
+        .day-card { margin-bottom: 60px; }
+        .day-title { font-size: 26px; font-weight: 900; margin-bottom: 32px; display: flex; align-items: center; gap: 15px; }
+        .day-title span { background: var(--accent); color: #fff; font-size: 14px; padding: 4px 12px; border-radius: 8px; font-family: 'Plus Jakarta Sans'; }
+
+        .event-node { display: flex; gap: 32px; margin-bottom: 32px; position: relative; }
         .event-node::before { content: ''; position: absolute; left: 11px; top: 25px; bottom: -15px; width: 2px; background: #e5e5e5; }
         .event-node:last-child::before { display: none; }
-        .time-badge { min-width: 60px; height: 24px; background: #000; color: #fff; border-radius: 12px; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; z-index: 1; }
-        .spot-info h4 { margin: 0 0 5px; font-size: 18px; font-weight: 800; }
-        .spot-info p { margin: 0; font-size: 14px; color: #86868b; line-height: 1.6; }
+        
+        .time-badge { min-width: 65px; height: 26px; background: #f5f5f7; color: var(--text); border-radius: 13px; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; z-index: 1; font-family: 'Plus Jakarta Sans'; }
+        .spot-info h4 { margin: 0 0 8px; font-size: 19px; font-weight: 800; color: #1d1d1f; }
+        .spot-info p { margin: 0; font-size: 15px; color: #424245; line-height: 1.8; }
 
-        #loader { display: none; text-align: center; padding: 60px; }
-        .shimmer { width: 40px; height: 40px; border: 3px solid #f3f3f3; border-top: 3px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
+        /* ローディングアニメーション */
+        #loader { display: none; text-align: center; padding: 80px 0; }
+        .shimmer { width: 48px; height: 48px; border: 4px solid #f3f3f3; border-top: 4px solid var(--accent); border-radius: 50%; animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite; margin: 0 auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading-text { margin-top: 24px; font-weight: 700; color: var(--sub); font-size: 14px; letter-spacing: 1px; }
     </style>
 </head>
 <body>
     <div class="header-minimal">
-        <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Home</a>
-        <div style="font-weight: 900; letter-spacing: -1px;">SURGE Intelligence</div>
+        <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> ホームへ戻る</a>
+        <div style="font-weight: 900; letter-spacing: -1px; font-family: 'Plus Jakarta Sans';">SURGE AI</div>
     </div>
 
     <div class="main-container">
-        <h2>Plan your journey.</h2>
+        <h2>旅のプランを構築する。</h2>
         
         <div class="input-group">
-            <label>Destination</label>
-            <input type="text" id="dest" placeholder="どこへ向かいますか？">
+            <label>目的地</label>
+            <input type="text" id="dest" placeholder="例：東京、京都、北海道など">
         </div>
 
         <div style="display: flex; gap: 20px;">
             <div class="input-group" style="flex: 1;">
-                <label>Duration</label>
+                <label>期間</label>
                 <select id="duration">
-                    <option value="1日">日帰り</option>
-                    <option value="1泊2日">1泊2日</option>
+                    <option value="日帰り">日帰り</option>
+                    <option value="1泊2日" selected>1泊2日</option>
                     <option value="2泊3日">2泊3日</option>
+                    <option value="3泊4日以上">3泊4日以上</option>
                 </select>
             </div>
             <div class="input-group" style="flex: 1;">
-                <label>Budget</label>
+                <label>予算目安</label>
                 <select id="budget">
-                    <option value="節約">Minimal</option>
-                    <option value="標準" selected>Standard</option>
-                    <option value="贅沢">Luxury</option>
+                    <option value="節約">節約重視</option>
+                    <option value="標準" selected>標準的</option>
+                    <option value="贅沢">贅沢に楽しむ</option>
                 </select>
             </div>
         </div>
 
         <div class="input-group">
-            <label>Special Requests</label>
-            <textarea id="notes" rows="4" placeholder="こだわりを入力してください（例：空港の撮影ポイント、筆記具専門店、静かなカフェ...）"></textarea>
+            <label>こだわり・要望</label>
+            <textarea id="notes" rows="4" placeholder="例：空港の見えるホテルがいい、お洒落な文房具屋を巡りたい、プログラミングができる静かなカフェを知りたい..."></textarea>
         </div>
 
-        <button class="btn-gen" onclick="generate()">AIプランを構築する</button>
+        <button class="btn-gen" onclick="generate()">AIプランを生成</button>
 
         <div id="loader">
             <div class="shimmer"></div>
-            <p style="margin-top: 20px; font-weight: 600; color: #86868b;">Analyzing global data...</p>
+            <p class="loading-text">最適なルートを解析中...</p>
         </div>
 
         <div id="resultArea">
@@ -100,16 +108,19 @@
             document.getElementById('resultArea').style.display = 'none';
 
             try {
+                // AIへの指示も日本語で最適化
                 const response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
-                        prompt: `${destination}への旅行。期間:${document.getElementById('duration').value}。予算:${document.getElementById('budget').value}。要望:${document.getElementById('notes').value}。必ずJSON形式で出力。`
+                        prompt: `${destination}への旅行。期間:${document.getElementById('duration').value}。予算:${document.getElementById('budget').value}。要望:${document.getElementById('notes').value}。出力は必ず以下のJSON形式で。{ "days": [ { "day": 1, "title": "タイトル", "events": [ { "time": "10:00", "spot": "場所", "desc": "説明" } ] } ] }`
                     })
                 });
 
                 const rawData = await response.json();
                 let aiText = rawData.plan || (Array.isArray(rawData) ? rawData[0].generated_text : JSON.stringify(rawData));
+                
+                // JSON抽出ロジック
                 const startIdx = aiText.indexOf('{');
                 const endIdx = aiText.lastIndexOf('}');
                 const plan = JSON.parse(aiText.substring(startIdx, endIdx + 1));
@@ -117,8 +128,13 @@
                 render(plan);
                 document.getElementById('loader').style.display = 'none';
                 document.getElementById('resultArea').style.display = 'block';
+                
+                // 結果へスクロール
+                window.scrollTo({ top: document.getElementById('resultArea').offsetTop - 100, behavior: 'smooth' });
+                
             } catch (e) {
-                alert("エラーが発生しました。");
+                console.error(e);
+                alert("プランの生成中にエラーが発生しました。もう一度お試しください。");
                 document.getElementById('loader').style.display = 'none';
             }
         }
@@ -126,150 +142,7 @@
         function render(plan) {
             document.getElementById('mainPlan').innerHTML = (plan.days || []).map(d => `
                 <div class="day-card">
-                    <div class="day-title">Day ${d.day} / ${d.title}</div>
-                    ${(d.events || []).map(e => `
-                        <div class="event-node">
-                            <div class="time-badge">${e.time}</div>
-                            <div class="spot-info">
-                                <h4>${e.spot}</h4>
-                                <p>${e.desc}</p>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `).join('');
-        }
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planner | SURGE Intelligence</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --accent: #0071e3; --bg: #ffffff; --card: #f5f5f7; }
-        body { margin: 0; font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif; background: var(--bg); color: #1d1d1f; }
-        .header-minimal { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; }
-        .back-link { text-decoration: none; color: #86868b; font-weight: 600; font-size: 14px; }
-        
-        .main-container { max-width: 800px; margin: 0 auto; padding: 0 20px 100px; }
-        h2 { font-size: 32px; font-weight: 900; margin-bottom: 40px; letter-spacing: -1px; }
-
-        .input-group { margin-bottom: 30px; }
-        .input-group label { display: block; font-size: 12px; font-weight: 800; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; }
-        input, select, textarea { width: 100%; border: 1.5px solid #d2d2d7; border-radius: 16px; padding: 18px; font-size: 16px; font-weight: 600; box-sizing: border-box; outline: none; transition: 0.3s; font-family: inherit; }
-        input:focus { border-color: var(--accent); }
-
-        .btn-gen { width: 100%; background: var(--accent); color: white; border: none; padding: 22px; border-radius: 20px; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: 0 10px 20px rgba(0,113,227,0.2); transition: 0.3s; }
-        .btn-gen:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(0,113,227,0.3); }
-
-        /* Result Area */
-        #resultArea { display: none; margin-top: 60px; border-top: 1px solid #d2d2d7; padding-top: 40px; }
-        .day-card { margin-bottom: 40px; }
-        .day-title { font-size: 24px; font-weight: 800; margin-bottom: 25px; }
-        .event-node { display: flex; gap: 30px; margin-bottom: 30px; position: relative; }
-        .event-node::before { content: ''; position: absolute; left: 11px; top: 25px; bottom: -15px; width: 2px; background: #e5e5e5; }
-        .event-node:last-child::before { display: none; }
-        .time-badge { min-width: 60px; height: 24px; background: #000; color: #fff; border-radius: 12px; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; z-index: 1; }
-        .spot-info h4 { margin: 0 0 5px; font-size: 18px; font-weight: 800; }
-        .spot-info p { margin: 0; font-size: 14px; color: #86868b; line-height: 1.6; }
-
-        #loader { display: none; text-align: center; padding: 60px; }
-        .shimmer { width: 40px; height: 40px; border: 3px solid #f3f3f3; border-top: 3px solid var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
-</head>
-<body>
-    <div class="header-minimal">
-        <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Home</a>
-        <div style="font-weight: 900; letter-spacing: -1px;">SURGE Intelligence</div>
-    </div>
-
-    <div class="main-container">
-        <h2>Plan your journey.</h2>
-        
-        <div class="input-group">
-            <label>Destination</label>
-            <input type="text" id="dest" placeholder="どこへ向かいますか？">
-        </div>
-
-        <div style="display: flex; gap: 20px;">
-            <div class="input-group" style="flex: 1;">
-                <label>Duration</label>
-                <select id="duration">
-                    <option value="1日">日帰り</option>
-                    <option value="1泊2日">1泊2日</option>
-                    <option value="2泊3日">2泊3日</option>
-                </select>
-            </div>
-            <div class="input-group" style="flex: 1;">
-                <label>Budget</label>
-                <select id="budget">
-                    <option value="節約">Minimal</option>
-                    <option value="標準" selected>Standard</option>
-                    <option value="贅沢">Luxury</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <label>Special Requests</label>
-            <textarea id="notes" rows="4" placeholder="こだわりを入力してください（例：空港の撮影ポイント、筆記具専門店、静かなカフェ...）"></textarea>
-        </div>
-
-        <button class="btn-gen" onclick="generate()">AIプランを構築する</button>
-
-        <div id="loader">
-            <div class="shimmer"></div>
-            <p style="margin-top: 20px; font-weight: 600; color: #86868b;">Analyzing global data...</p>
-        </div>
-
-        <div id="resultArea">
-            <div id="mainPlan"></div>
-        </div>
-    </div>
-
-    <script>
-        const WORKER_URL = "https://trip.proluce.workers.dev";
-
-        async function generate() {
-            const destination = document.getElementById('dest').value;
-            if(!destination) return alert("目的地を入力してください。");
-
-            document.getElementById('loader').style.display = 'block';
-            document.getElementById('resultArea').style.display = 'none';
-
-            try {
-                const response = await fetch(WORKER_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        prompt: `${destination}への旅行。期間:${document.getElementById('duration').value}。予算:${document.getElementById('budget').value}。要望:${document.getElementById('notes').value}。必ずJSON形式で出力。`
-                    })
-                });
-
-                const rawData = await response.json();
-                let aiText = rawData.plan || (Array.isArray(rawData) ? rawData[0].generated_text : JSON.stringify(rawData));
-                const startIdx = aiText.indexOf('{');
-                const endIdx = aiText.lastIndexOf('}');
-                const plan = JSON.parse(aiText.substring(startIdx, endIdx + 1));
-
-                render(plan);
-                document.getElementById('loader').style.display = 'none';
-                document.getElementById('resultArea').style.display = 'block';
-            } catch (e) {
-                alert("エラーが発生しました。");
-                document.getElementById('loader').style.display = 'none';
-            }
-        }
-
-        function render(plan) {
-            document.getElementById('mainPlan').innerHTML = (plan.days || []).map(d => `
-                <div class="day-card">
-                    <div class="day-title">Day ${d.day} / ${d.title}</div>
+                    <div class="day-title"><span>DAY ${d.day}</span> ${d.title}</div>
                     ${(d.events || []).map(e => `
                         <div class="event-node">
                             <div class="time-badge">${e.time}</div>
