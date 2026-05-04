@@ -171,6 +171,15 @@
                 document.getElementById('itemList').innerHTML = plan.items.map(i => `<div class="item-tag">${i}</div>`).join('');
             }
         }
+
+        // ページ読み込み時にURLパラメータを確認する
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const destParam = urlParams.get('dest');
+    if (destParam) {
+        document.getElementById('dest').value = destParam;
+    }
+}
     </script>
 </body>
 </html>
