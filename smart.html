@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SURGE Travel | 知的な旅の体験を</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://trip.surge.f5.si/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://trip.surge.f5.si/favicon2.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="google-site-verification" content="QzpufK8Cl_B7crFUTFlAgQPzxa3RfE3NILhwN_26cwk" />
+<meta name="description" content="SURGE TravelはAIを活用し、あなたに最適な旅をご提案します。混雑を避けた空港での過ごし方や、あなただけの特別な旅をデザイン。">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="旅行, AIプランナー, SURGE, 空港, 観光, 旅行計画">
+<meta property="og:title" content="SURGE Travel | 知的な旅の体験を">
+<meta property="og:description" content="AIが提案する、新しい時代の旅行体験。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80"> 
+<meta name="apple-mobile-web-app-title" content="SURGE Travel">
+<meta property="og:url" content="https://trip.surge.f5.si/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SURGE Travel",
+  "url": "https://trip.surge.f5.si/",
+  "description": "AIを活用した知的で洗練された旅行プランニングサービス"
+}
+</script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8X563D7EHX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8X563D7EHX');
+</script>
+    <style>
+        :root { 
+            --accent: #0071e3; 
+            --accent-gradient: linear-gradient(135deg, #0071e3 0%, #00c6ff 100%);
+            --bg: #f5f5f7; 
+            --card-bg: #ffffff;
+            --text: #1d1d1f; 
+            --sub: #86868b; 
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Noto Sans JP', 'Plus Jakarta Sans', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+        }
+
+        /* ナビゲーション */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%;
+            z-index: 1000; 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(20px); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 5%; 
+            box-sizing: border-box; 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-weight: 900; font-size: 24px; letter-spacing: -1.5px; font-family: 'Plus Jakarta Sans'; color: #000; text-decoration: none; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 700; margin-left: 20px; font-size: 14px; }
+
+        /* ヒーローエリア */
+        .hero { 
+            position: relative;
+            padding: 240px 5% 180px; 
+            background: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero-tag { font-weight: 800; background: var(--accent-gradient); padding: 5px 12px; border-radius: 6px; font-size: 12px; }
+        .hero h1 { font-size: clamp(36px, 8vw, 72px); font-weight: 900; line-height: 1.1; margin-top: 20px; }
+        .btn-cta { display: inline-block; background: #fff; color: #000; text-decoration: none; padding: 18px 36px; border-radius: 35px; font-weight: 900; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: 0.3s; }
+        .btn-cta:hover { transform: translateY(-5px); background: var(--accent); color: #fff; }
+
+        /* コンテンツセクション */
+        .section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        .section-header { margin-bottom: 40px; }
+        .section-header h2 { font-size: 32px; font-weight: 900; letter-spacing: -1px; }
+        .section-header p { color: var(--sub); margin-top: 10px; font-weight: 500; }
+
+        /* お知らせセクションのスタイル */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.news-item {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.news-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: var(--accent);
+}
+
+.news-meta {
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.news-date {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--sub);
+    font-family: 'Plus Jakarta Sans';
+}
+
+.news-category {
+    font-size: 10px;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-content h3 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.news-content p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--sub);
+    line-height: 1.6;
+}
+
+.news-arrow {
+    color: #d2d2d7;
+    transition: 0.3s;
+}
+
+.news-item:hover .news-arrow {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+    .news-arrow {
+        display: none;
+    }
+}
+
+        /* ランキングセクションのスタイル */
+.ranking-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ranking-row {
+    background: #fff;
+    padding: 20px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.ranking-row:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: var(--accent);
+}
+
+.rank-num {
+    font-family: 'Plus Jakarta Sans';
+    font-size: 32px;
+    font-weight: 900;
+    color: #e5e5e7;
+    min-width: 50px;
+    font-style: italic;
+}
+
+.ranking-row:hover .rank-num {
+    color: var(--accent);
+}
+
+.rank-img-mini {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f7;
+    flex-shrink: 0;
+}
+
+.rank-main {
+    flex: 1;
+}
+
+.rank-location {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.rank-location h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.rank-badge {
+    font-size: 10px;
+    font-weight: 800;
+    background: #f0f0f5;
+    color: var(--sub);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.rank-main p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--sub);
+    line-height: 1.5;
+}
+
+.rank-stats {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stats-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--sub);
+    text-align: right;
+}
+
+.stats-bar {
+    width: 100%;
+    height: 6px;
+    background: #f0f0f5;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.stats-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 3px;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .ranking-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .rank-stats {
+        width: 100%;
+    }
+    .stats-label {
+        text-align: left;
+    }
+    .rank-img-mini {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+        /* おすすめ・ランキンググリッド */
+        .ranking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .dest-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .dest-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        
+        .dest-img { width: 100%; aspect-ratio: 4/5; background-color: #e5e5e7; background-size: cover; background-position: center; transition: 0.5s; }
+        .dest-card:hover .dest-img { scale: 1.05; }
+        
+        .dest-info { padding: 20px; background: #fff; }
+        .dest-rank { position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 5px 12px; border-radius: 10px; font-weight: 900; font-size: 12px; backdrop-filter: blur(5px); }
+        .dest-name { font-size: 20px; font-weight: 900; margin: 0; }
+        .dest-tag { font-size: 12px; color: var(--accent); font-weight: 800; margin-bottom: 5px; display: block; }
+
+        /* 機能紹介エリア */
+        .feature-box { background: #fff; border-radius: 30px; padding: 40px; margin-bottom: 40px; display: flex; align-items: center; gap: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .feature-icon { width: 60px; height: 60px; background: var(--accent-gradient); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px; }
+        .feature-text h3 { margin: 0 0 5px; font-size: 20px; font-weight: 900; }
+        .feature-text p { margin: 0; color: var(--sub); font-size: 14px; }
+
+        /* FAQ内のキーワードリンク（点線スタイル） */
+.faq-link {
+    color: var(--accent);
+    font-weight: 800;
+    cursor: pointer;
+    border-bottom: 2px dotted var(--accent); /* 下に点線を配置 */
+    padding: 0 2px;
+    transition: 0.2s;
+    display: inline-block;
+}
+
+.faq-link:hover {
+    background: rgba(0, 113, 227, 0.05);
+    border-bottom-style: solid; /* ホバー時に実線にする演出 */
+    transform: translateY(-1px);
+}
+
+        footer { background: #fff; padding: 60px 5%; text-align: center; border-top: 1px solid #e5e5e7; }
+
+        /* スマホ対応（既存のメディアクエリ） */
+@media (max-width: 768px) {
+    /* 追記：ヒーローエリアの背景固定を解除 */
+    .hero {
+        background-attachment: scroll !important;
+    }
+
+    /* 以下、既存のスマホ対応コード */
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+    /* ...省略... */
+}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">SURGE Travel</a>
+        <div class="nav-links">
+            <a href="planner.html">AIプランナー</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">SURGE PROJECT v2.5</span>
+            <h1>旅を、もっと知的に。<br>もっと自由に。</h1>
+            <p>あなたに最高の思い出を。AIがあなたの「偏愛」を解析し、最高の旅行ルートを提案します。</p>
+            <a href="planner.html" class="btn-cta">AIとプランを作る</a>
+        </div>
+    </header>
+
+<section class="section" style="padding-top: 0;">
+    <div class="section-header">
+        <h2>お知らせ</h2>
+        <p>SURGEの最新アップデートと旅行ガイド</p>
+    </div>
+
+    <div class="news-list">
+     
+        <a href="/article/02.html" class="news-item">
+            <div class="news-meta">
+                <span class="news-date">2026.05.04</span>
+                <span class="news-category">UPDATE</span>
+            </div>
+            <div class="news-content">
+                <h3>SURGE v2.5 リリース：プラン生成アルゴリズムの刷新</h3>
+                <p>AIの解析精度が向上し、より個人の好みに最適化されたルート提案が可能になりました。</p>
+            </div>
+            <i class="fas fa-chevron-right news-arrow"></i>
+        </a>
+
+      
+<!-- 記事2：旅行特化の内容へ変更 -->
+        <a href="/article/01.html" class="news-item">
+            <div class="news-meta">
+                <span class="news-date">2026.05.01</span>
+                <span class="news-category">TIPS</span>
+            </div>
+            <div class="news-content">
+                <h3>GWでも混雑を避ける、空港での「知的な過ごし方」</h3>
+                <p>大型連休の羽田・成田を賢く攻略。ラウンジ活用術から、あまり知られていない穴場の展望エリアまで、快適な出発前のルーティンを紹介。</p>
+            </div>
+            <i class="fas fa-chevron-right news-arrow"></i>
+        </a>
+    </div>
+</section>
+
+    <!-- ランキングセクション -->
+<section class="section" style="padding-top: 0;">
+    <div class="section-header">
+        <h2>人気ランキング</h2>
+        <p>SURGEユーザーに選ばれている今注目の目的地</p>
+    </div>
+
+    <div class="ranking-container">
+        <!-- 1位 -->
+        <a href="planner.html?dest=東京" class="ranking-row">
+            <div class="rank-num">01</div>
+            <div class="rank-img-mini" style="background-image: url('/home/0001.jpg');"></div>
+            <div class="rank-main">
+                <div class="rank-location">
+                    <h3>東京 / Tokyo</h3>
+                    <span class="rank-badge">トレンド 1位</span>
+                </div>
+                <p>最先端のテックスポットと伝統が交差する、SURGEのメインフィールド。</p>
+            </div>
+            <div class="rank-stats">
+                <span class="stats-label">注目度</span>
+                <div class="stats-bar"><div class="stats-fill" style="width: 95%;"></div></div>
+            </div>
+        </a>
+
+        <!-- 2位 -->
+        <a href="planner.html?dest=北海道" class="ranking-row">
+            <div class="rank-num">02</div>
+            <div class="rank-img-mini" style="background-image: url('/home/0002.jpg');"></div>
+            <div class="rank-main">
+                <div class="rank-location">
+                    <h3>北海道 / Hokkaido</h3>
+                    <span class="rank-badge">航空ファンに人気</span>
+                </div>
+                <p>新千歳空港の充実度と、広大な自然の中での開発合宿に最適。</p>
+            </div>
+            <div class="rank-stats">
+                <span class="stats-label">注目度</span>
+                <div class="stats-bar"><div class="stats-fill" style="width: 88%;"></div></div>
+            </div>
+        </a>
+
+        <!-- 3位 -->
+        <a href="planner.html?dest=福岡" class="ranking-row">
+            <div class="rank-num">03</div>
+            <div class="rank-img-mini" style="background-image: url('/home/0003.jpg');"></div>
+            <div class="rank-main">
+                <div class="rank-location">
+                    <h3>福岡 / Fukuoka</h3>
+                    <span class="rank-badge">グルメ & ワーク</span>
+                </div>
+                <p>空港から街へのアクセスは日本一。食と作業環境のバランスが抜群。</p>
+            </div>
+            <div class="rank-stats">
+                <span class="stats-label">注目度</span>
+                <div class="stats-bar"><div class="stats-fill" style="width: 82%;"></div></div>
+            </div>
+        </a>
+    </div>
+</section>
+
+    <!-- おすすめ・ランキングセクション -->
+    <section class="section" style="background: #fff; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+        <div class="section-header">
+            <h2>おすすめの目的地</h2>
+            <p>クリックすると、この場所を目的地に設定してプランナーを起動します</p>
+        </div>
+
+        <div class="ranking-grid">
+            <!-- 東京 -->
+            <a href="planner.html?dest=東京" class="dest-card">
+                <div class="dest-rank">#1 Popular</div>
+                <div class="dest-img" style="background-image: url('/home/0004.jpg');"></div>
+                <div class="dest-info">
+                    <span class="dest-tag">TECH & MODERN</span>
+                    <h3 class="dest-name">東京</h3>
+                </div>
+            </a>
+
+            <!-- 京都 -->
+            <a href="planner.html?dest=京都" class="dest-card">
+                <div class="dest-rank">#2 History</div>
+                <div class="dest-img" style="background-image: url('/home/0005.jpg');"></div>
+                <div class="dest-info">
+                    <span class="dest-tag">CULTURE & QUIET</span>
+                    <h3 class="dest-name">京都</h3>
+                </div>
+            </a>
+
+            <!-- 北海道 -->
+            <a href="planner.html?dest=北海道" class="dest-card">
+                <div class="dest-rank">#3 Nature</div>
+                <div class="dest-img" style="background-image: url('/home/0006.jpg');"></div>
+                <div class="dest-info">
+                    <span class="dest-tag">AIRPORT & FOOD</span>
+                    <h3 class="dest-name">北海道</h3>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 特集記事セクション -->
+<section class="section">
+    <div class="section-header">
+        <h2>Features</h2>
+        <p>旅をより深く、知的に楽しむための特集記事</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+
+        <a href="/blog/002.html" style="text-decoration: none; color: inherit;">
+            <div style="background: #fff; border-radius: 24px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <img src="/home/0007.jpg" style="width: 100%; height: 200px; object-fit: cover;" alt="北海道の風景">
+                <div style="padding: 25px;">
+                    <span style="color: var(--accent); font-weight: 800; font-size: 12px; font-family: 'Plus Jakarta Sans'; uppercase;">DESTINATIONS / HOKKAIDO</span>
+                    <h3 style="margin: 10px 0; font-size: 20px; font-weight: 900;">北海道再発見：大地に刻まれた「開拓」と「静寂」の物語</h3>
+                    <p style="color: var(--sub); font-size: 14px;">広大な大地に隠された歴史的建造物やアイヌ文化を、知的な視点で紐解きます。</p>
+                </div>
+            </div>
+        </a>
+        
+        <a href="/blog/001.html" style="text-decoration: none; color: inherit;">
+            <div style="background: #fff; border-radius: 24px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <img src="/home/0009.jpg" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 25px;">
+                    <span style="color: var(--accent); font-weight: 800; font-size: 12px; font-family: 'Plus Jakarta Sans';">DESTINATIONS</span>
+                    <h3 style="margin: 10px 0; font-size: 20px; font-weight: 900;">東京再発見：知的な「静」と「動」を巡る旅</h3>
+                    <p style="color: var(--sub); font-size: 14px;">定番を少し外れた、大人の知的好奇心を刺激するスポットをご紹介します。</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="/blog/003.html" style="text-decoration: none; color: inherit;">
+            <div style="background: #fff; border-radius: 24px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); transition: 0.3s;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                <img src="/home/0008.jpg" style="width: 100%; height: 200px; object-fit: cover;" alt="名古屋の風景">
+                <div style="padding: 25px;">
+                    <span style="color: var(--accent); font-weight: 800; font-size: 12px; font-family: 'Plus Jakarta Sans'; text-transform: uppercase;">DESTINATIONS / NAGOYA</span>
+                    <h3 style="margin: 10px 0; font-size: 20px; font-weight: 900;">名古屋再発見：中京の核が魅せる「伝統」と「未来」の交差</h3>
+                    <p style="color: var(--sub); font-size: 14px;">徳川の歴史から世界をリードするモノづくりまで、名古屋の深層を読み解きます。</p>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+    <!-- FAQセクション（キーワード連携版） -->
+<section class="section" style="padding-top: 0;">
+    <div class="section-header">
+        <h2>よくあるご質問</h2>
+        <p>SURGEをご利用いただく際のアドバイス</p>
+    </div>
+
+    <div class="faq-container">
+      
+        <details class="faq-item">
+            <summary>車いすを利用していますが、おすすめの観光場所はありますか？ <i class="fas fa-plus"></i></summary>
+            <div class="faq-answer">
+                <p>はい、もちろんです。SURGEではアクセシビリティ情報の解析も進めています。例えば、<span class="faq-link" onclick="location.href='planner.html?dest=東京'">東京</span>周辺は整備が進み、アクセスしやすいルートが増えています。AIプランナーの要望欄に「<span class="faq-link" onclick="location.href='planner.html?notes=バリアフリー優先で、車いすでも移動しやすいルートを教えてください。'">バリアフリー優先</span>」と入力していただくと、より最適なルートを提案します。</p>
+            </div>
+        </details>
+
+      
+<details class="faq-item">
+            <summary>移動時間も楽しみたいのですが、景色の良いルートはありますか？ <i class="fas fa-plus"></i></summary>
+            <div class="faq-answer">
+                <p>はい。例えば、<span class="faq-link" onclick="location.href='planner.html?dest=熱海&notes=海が見える景色の良い列車ルートや、富士山が見える席を優先したプランを教えて。'">熱海・伊豆方面</span>へ向かう特急列車では、相模湾を一望できる座席指定が人気です。AIプランナーに「景色優先」と伝えていただければ、移動そのものが目的になるような美しいルートを提案します。</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>ガイドブックに載っていないような、現地の日常を知る旅はできますか？ <i class="fas fa-plus"></i></summary>
+            <div class="faq-answer">
+                <p>もちろんです。SURGEは主要な観光地だけでなく、地元の人が愛する隠れた名店や静かな路地の解析も得意としています。特に<span class="faq-link" onclick="location.href='planner.html?dest=金沢&notes=観光客が少ない、地元の生活感が感じられる静かな裏通りや工芸スポットを巡るプランを。'">金沢</span>などの文化が根付く街では、路地裏を歩く知的な散策プランが非常に好評です。</p>
+            </div>
+        </details>
+    </div>
+</section>
+
+    <footer>
+        <div class="logo">SURGE</div>
+        <p style="color: var(--sub); font-size: 14px; margin-top: 20px;">知的好奇心を、移動の原動力に。</p>
+        <p style="color: #d2d2d7; font-size: 12px;">© 2026 SURGE Travel Project.</p>
+    </footer>
+
+    
+</body>
+</html>
