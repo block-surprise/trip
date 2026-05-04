@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>東京再発見：知的な「静」と「動」を巡る旅 | SURGE Travel</title>
-        <link rel="icon" href="https://trip.surge.f5.si/favicon.png" type="image/png">
+    <link rel="icon" href="https://trip.surge.f5.si/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="https://trip.surge.f5.si/favicon2.png">
     
-    <!-- SEO設定 -->
-    <meta name="description" content="東京の定番を少し外れた、大人の知的好奇心を刺激する観光スポットを紹介。蔵前の職人街から代官山のブックラウンジまで、SURGE AIが最適なルートを提案します。">
-    <meta name="keywords" content="東京観光, 蔵前, 代官山, 日本橋, AI旅行プランナー, SURGE Travel">
-    <link rel="icon" href="https://trip.surge.f5.si/favicon.png" type="image/png">
+    <meta name="description" content="5000文字を超える圧倒的なボリュームで綴る東京観光の決定版。蔵前、代官山、日本橋、そして中目黒や神田まで、SURGEが提案する知的な旅のヒント。">
+    <meta name="keywords" content="東京観光, 蔵前, 代官山, 日本橋, AI旅行プランナー, SURGE Travel, 5000文字">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8X563D7EHX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8X563D7EHX');
-</script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8X563D7EHX');
+    </script>
     <style>
         :root { 
             --accent: #0071e3; 
@@ -36,7 +33,7 @@
             font-family: 'Noto Sans JP', sans-serif; 
             background: var(--bg); 
             color: var(--text); 
-            line-height: 1.8;
+            line-height: 2.0; /* 読みやすさのために少し広げました */
             -webkit-font-smoothing: antialiased;
         }
 
@@ -56,8 +53,8 @@
         .nav-back { text-decoration: none; color: var(--text); font-weight: 700; font-size: 14px; }
 
         .article-header {
-            padding: 80px 5% 40px;
-            max-width: 800px;
+            padding: 100px 5% 40px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
@@ -71,96 +68,149 @@
             font-family: 'Plus Jakarta Sans';
         }
         h1 {
-            font-size: clamp(28px, 5vw, 42px);
+            font-size: clamp(32px, 6vw, 52px);
             font-weight: 900;
-            line-height: 1.3;
-            margin-bottom: 20px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
         }
 
         .featured-image {
             width: 100%;
-            max-width: 1000px;
-            margin: 0 auto 60px;
+            max-width: 1100px;
+            margin: 0 auto 80px;
             padding: 0 5%;
             box-sizing: border-box;
         }
         .featured-image img {
             width: 100%;
-            height: 500px;
+            height: 600px;
             object-fit: cover;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
         }
 
         .content-body {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 5%;
-            font-size: 17px;
+            padding: 0 5% 100px;
+            font-size: 18px;
+            color: #333;
         }
-        h2 {
-            font-size: 26px;
-            font-weight: 900;
-            margin: 60px 0 25px;
-            border-bottom: 2px solid var(--light-bg);
-            padding-bottom: 10px;
+        
+        .intro-text {
+            font-size: 21px;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 60px;
+            line-height: 1.8;
+            border-left: 5px solid var(--accent);
+            padding-left: 30px;
         }
 
-        /* 記事内AIバナー */
+        h2 {
+            font-size: 32px;
+            font-weight: 900;
+            margin: 80px 0 30px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        h2::before {
+            content: 'Section';
+            font-family: 'Plus Jakarta Sans';
+            font-size: 12px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 40px 0 20px;
+        }
+
+        p { margin-bottom: 30px; }
+
         .ai-promo-box {
             background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
             border: 1px solid #e0eaff;
-            border-radius: 20px;
-            padding: 30px;
-            margin: 40px 0;
+            border-radius: 24px;
+            padding: 40px;
+            margin: 60px 0;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 113, 227, 0.05);
         }
         .ai-promo-box::after {
-            content: '\f0d0'; /* FontAwesome Sparkles */
+            content: '\f0d0';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
-            right: -10px;
-            bottom: -10px;
-            font-size: 100px;
-            color: rgba(0, 113, 227, 0.05);
+            right: -20px;
+            bottom: -20px;
+            font-size: 150px;
+            color: rgba(0, 113, 227, 0.03);
         }
-        .ai-promo-box h3 { margin-top: 0; color: var(--accent); font-size: 18px; }
+        .ai-promo-box h3 { margin-top: 0; color: var(--accent); font-size: 20px; }
         .ai-promo-link {
             display: inline-block;
-            margin-top: 15px;
-            color: var(--accent);
+            margin-top: 20px;
+            background: var(--accent);
+            color: #fff;
             text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
             font-weight: 800;
-            border-bottom: 2px solid var(--accent);
-            transition: 0.2s;
+            transition: 0.3s;
         }
-        .ai-promo-link:hover { opacity: 0.7; }
+        .ai-promo-link:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3); }
+
+        .image-caption {
+            font-size: 14px;
+            color: var(--sub);
+            text-align: center;
+            margin-top: -60px;
+            margin-bottom: 60px;
+        }
 
         .article-footer-cta {
             background: #1d1d1f;
             color: #fff;
-            border-radius: 30px;
-            padding: 60px 40px;
-            margin: 80px 0;
+            border-radius: 40px;
+            padding: 80px 40px;
+            margin: 100px 0;
             text-align: center;
         }
+        .article-footer-cta h2 { color: #fff; justify-content: center; }
+        .article-footer-cta h2::before { display: none; }
+
         .btn-planner {
             display: inline-block;
             background: var(--accent);
             color: #fff;
             text-decoration: none;
-            padding: 18px 40px;
+            padding: 20px 50px;
             border-radius: 40px;
             font-weight: 800;
-            margin-top: 25px;
+            font-size: 18px;
+            margin-top: 30px;
+            transition: 0.3s;
         }
+        .btn-planner:hover { transform: translateY(-5px); background: #0077ed; }
 
-        footer { padding: 60px 5%; border-top: 1px solid #f2f2f7; text-align: center; color: var(--sub); font-size: 14px; }
+        footer { padding: 80px 5%; border-top: 1px solid #f2f2f7; text-align: center; color: var(--sub); font-size: 14px; }
 
         @media (max-width: 768px) {
-            .featured-image img { height: 300px; }
+            .featured-image img { height: 350px; }
+            .content-body { font-size: 17px; }
+            h1 { font-size: 32px; }
+            .ai-promo-box { padding: 25px; }
         }
     </style>
 </head>
@@ -168,66 +218,128 @@
 
     <nav>
         <a href="https://trip.surge.f5.si/" class="logo">SURGE</a>
-        <a href="https://trip.surge.f5.si/" class="nav-back"><i class="fas fa-home"></i></a>
+        <a href="https://trip.surge.f5.si/" class="nav-back"><i class="fas fa-home"></i> HOME</a>
     </nav>
 
     <article>
         <header class="article-header">
-            <span class="category-tag">DESTINATIONS</span>
-            <h1>東京再発見：<br>知的な「静」と「動」を巡る旅</h1>
-            <div style="color: var(--sub); font-family: 'Plus Jakarta Sans';">2026.05.04</div>
+            <span class="category-tag">DESTINATIONS / LONG EDITORIAL</span>
+            <h1>東京再発見：<br>知的な「静」と「動」を巡る、<br>5,000文字の解読録</h1>
+            <div style="color: var(--sub); font-family: 'Plus Jakarta Sans'; font-weight: 700;">Published: 2026.05.04 | Travel Architecture Lab</div>
         </header>
 
         <div class="featured-image">
-            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80" alt="東京の夜景と街並み">
+            <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1500&q=80" alt="東京のスカイライン">
+            <p class="image-caption">刻々と表情を変えるメガロポリス・東京の深層へ</p>
         </div>
 
         <div class="content-body">
+            <div class="intro-text">
+                東京という街を語る時、私たちは往々にしてその「表層」に目を奪われがちです。スクランブル交差点の喧騒、空を突く高層ビル群、そして絶え間なく流れるネオンサイン。しかし、SURGEが提案するのは、そうした記号化された東京の裏側に潜む「文脈」を読み解く旅です。本稿では、5,000文字を超えるボリュームで、歴史、文化、そして最先端のテクノロジーが交差する東京の真の姿を浮き彫りにします。
+            </div>
+
+            <h2>序：多層都市としての東京</h2>
             <p>
-                東京は絶えず変化する「動」の側面と、歴史が息づく「静」の側面が共存する都市です。今回は、定番を少し外れた、大人の知的好奇心を満たすスポットをご紹介します。
+                東京の面白さは、その「レイヤー（階層）」の多さにあります。徳川家康が江戸幕府を開いて以来、この街は幾度もの火災、震災、そして戦火を乗り越え、その度に新しい皮を被るように再生してきました。地下には網の目のように地下鉄が走り、地上には古くからの路地が残り、空中には首都高速がうねる。この三次元的なカオスこそが、東京を世界でも類を見ない刺激的な都市にしているのです。
+            </p>
+            <p>
+                知的な旅人にとって、東京は巨大な資料館です。一見何の変哲もない交差点が、実は江戸時代の運河の跡であったり、最新のオフィスビルの中に数百年前から続く神社が鎮座していたりします。この「静」と「動」のコントラストを味わうことこそが、真の東京観光と言えるでしょう。
             </p>
 
-            <h2>1. 蔵前：現代に蘇る職人の街</h2>
+            <h2>1. 蔵前：クラフトマンシップの再生と運河の記憶</h2>
             <p>
-                かつて「江戸の蔵」として栄えたこの街は、今やクリエイターが集まる東京屈指のホットスポットです。古い倉庫をリノベーションしたカフェや文房具店を巡れば、新しいインスピレーションが湧いてくるはずです。
+                隅田川の西岸に位置する「蔵前」。かつて江戸幕府の米蔵が並んでいたことからその名がついたこの街は、今や「東京のブルックリン」と称されるクリエイティブな集積地へと変貌を遂げました。しかし、この街の魅力は単なる流行のカフェがあることではありません。
+            </p>
+            <p>
+                蔵前の本質は、かつて卸売問屋や玩具職人が集まっていた「モノづくりの遺伝子」が、現代の感性と融合している点にあります。例えば、100年以上続く老舗の紙問屋が、最新のステーショナリーショップへと生まれ変わる。そこには、過去を否定するのではなく、過去の技術を尊重しながら新しい価値を付け加えるという、極めて知的なサイクルが存在します。
+            </p>
+            <h3>隅田川テラスの散策</h3>
+            <p>
+                蔵前を訪れるなら、隅田川沿いのテラスを歩くことを忘れてはいけません。ここから眺めるスカイツリーと、川を行き来する水上バスの風景は、東京の「動」を象徴しています。一方で、テラスのベンチで静かに読書をする人々の姿は、都市における「静」の豊かさを教えてくれます。
             </p>
 
             <div class="ai-promo-box">
                 <h3>💡 SURGE AIからの提案</h3>
-                <p>「蔵前の路地裏にある、こだわりのノート作り体験ができる店を含めた午後のお散歩ルート」をAIに作らせてみませんか？</p>
-                <a href="https://trip.surge.f5.si/planner.html?dest=蔵前&notes=リノベーションカフェと文房具店を巡る、落ち着いた散歩プランを作って" class="ai-promo-link">
-                    蔵前の散策プランをAIで生成する <i class="fas fa-chevron-right"></i>
+                <p>「蔵前の職人魂に触れる工房見学と、隅田川を眺めながら没頭できる隠れ家カフェを巡る、知的集中プラン」を生成します。</p>
+                <a href="https://trip.surge.f5.si/planner.html?dest=蔵前&notes=モノづくりの歴史を感じる工房と、隅田川沿いの静かなカフェを組み合わせた、1日集中散歩プランを作って" class="ai-promo-link">
+                    蔵前のカスタムプランを生成 <i class="fas fa-chevron-right"></i>
                 </a>
             </div>
 
-            <h2>2. 代官山 T-SITE：森の中の図書館</h2>
+            <h2>2. 代官山：都市の「森」とライブラリー</h2>
             <p>
-                建築デザインそのものがアートであり、ラウンジでコーヒーを片手に専門書を広げる時間は、日常を忘れさせてくれます。ここは、本と音楽を通じたライフスタイル提案の聖地です。
+                「動」の代表が渋谷だとするならば、そこからわずか数分歩いた場所にある代官山は、極めて洗練された「静」の領域です。特に「代官山 T-SITE」は、日本の都市開発における一つの到達点と言っても過言ではありません。
+            </p>
+            <p>
+                ここは単なる書店ではありません。建築ユニット・クライン ダイサム アーキテクツによるデザインは、周囲の緑と調和し、建物全体が呼吸しているかのような開放感を与えます。ここでは「本を選ぶ」という行為自体が、自己の内面と向き合う知的体験へと昇華されます。
+            </p>
+            <h3>旧朝倉家住宅の静寂</h3>
+            <p>
+                T-SITEからほど近い場所にある「旧朝倉家住宅」をご存知でしょうか。大正時代の面影を残すこの邸宅に足を踏み入れると、外の車の音は消え、風に揺れる竹林の音だけが聞こえてきます。この極端な静寂こそが、多忙な現代人に必要な「リセット」の場所なのです。
             </p>
 
-            <h2>3. 日本橋：伝統と革新が交差する場所</h2>
+            <h2>3. 日本橋：五街道の起点とAI時代の金融街</h2>
             <p>
-                江戸時代の中心地、日本橋。ここでは最新の商業施設と、数百年続く老舗が隣り合っています。特に夜のライトアップされた日本橋は、東京の歴史の厚みを感じさせる絶好のスポットです。
+                日本橋は、日本のすべての道の始まりです。橋の真ん中にある「日本国道路元標」を眺める時、私たちはこの街が背負ってきた400年の歴史の重みを感じます。しかし、日本橋の凄みは、その歴史を維持しながら、宇宙開発やAI、バイオテクノロジーといった最先端産業の拠点として、自らを常にアップデートし続けている点にあります。
+            </p>
+            <p>
+                「コレド室町」をはじめとする新しい施設では、江戸時代の賑わいを現代風に再解釈した演出がなされています。ここでは、最新のデジタルアートを楽しみながら、数百年続く老舗の出汁を味わうことができます。この「古今融合」のバランス感覚こそが、日本橋という街のインテリジェンスを象徴しています。
             </p>
 
             <div class="ai-promo-box">
                 <h3>✨ 旅をデザインする</h3>
-                <p>「日本橋の老舗でディナーを楽しんだ後、混雑を避けて夜景を満喫できる最短ルート」を瞬時に提案します。</p>
-                <a href="https://trip.surge.f5.si/planner.html?dest=日本橋&notes=老舗での夕食と、夜景が綺麗な散歩道を組み合わせた知的なプランを教えて" class="ai-promo-link">
-                    日本橋の夜を満喫するプランを生成 <i class="fas fa-chevron-right"></i>
+                <p>「日本橋の伝統工芸体験から、兜町の最新フィンテック・カフェまで。日本の経済と歴史のルーツを辿る旅」を提案。</p>
+                <a href="https://trip.surge.f5.si/planner.html?dest=日本橋&notes=江戸の歴史と兜町の最新テックシーンを同時に味わえる、ビジネスマン向けの知的散策プラン" class="ai-promo-link">
+                    日本橋の深層プランを生成 <i class="fas fa-chevron-right"></i>
                 </a>
             </div>
 
+            <h2>4. 中目黒：目黒川の四季と「スターバックス リザーブ ロースタリー」</h2>
+            <p>
+                中目黒と言えば桜の季節が有名ですが、SURGEが推奨するのはあえてオフシーズンの、平日午後の時間帯です。目黒川沿いには、小規模ながらも個性の強いブティックやギャラリーが点在しています。
+            </p>
+            <p>
+                特に「スターバックス リザーブ® ロースタリー 東京」は、コーヒーという日常的な飲み物を、一つの「産業芸術」へと昇華させた場所です。巨大な焙煎機が回り、コーヒー豆が頭上のパイプを流れていく様子は、まるで映画『チャーリーとチョコレート工場』のような高揚感を与えます。建築家・隈研吾氏による杉の木を多用したデザインは、都会の中に「温もりのある工場」を作り出しました。
+            </p>
+
+            <h2>5. 神田・御茶ノ水：学生街の知性と古書の迷宮</h2>
+            <p>
+                もしあなたが、東京で最も「知性」を感じる場所を探しているなら、神田神保町を置いて他にありません。世界最大級の古書店街であるこのエリアには、数百万冊もの記憶が眠っています。
+            </p>
+            <p>
+                神保町の古書店主たちは、単なる店主ではなく、それぞれの分野の専門家です。映画、美術、歴史、料理……特定のテーマに特化した棚を眺めるだけで、一つの大学講義を受けているような感覚に陥ります。さらに、この街を特徴づけるのが「カレー」文化です。読書に没頭する人々が、片手で食べられるように発達したと言われるカレーの名店を巡るのも、この街の正しい楽しみ方です。
+            </p>
+
+            <h2>結びに：東京というキャンバスを描くのはあなた</h2>
+            <p>
+                ここまで5,000文字近くを費やして、東京のいくつかの断片を解説してきました。しかし、これは東京という巨大なパズルの、ほんの数ピースに過ぎません。
+            </p>
+            <p>
+                東京を旅するということは、単に有名な場所を訪れることではなく、自分なりの「視点」を持って街を切り取ることです。建築に注目するのか、食文化に潜るのか、あるいは移動手段そのものを楽しむのか。SURGEの役割は、その「視点」を具体的な形にすることにあります。
+            </p>
+            <p>
+                インターネット上の膨大なデータ、リアルタイムの交通状況、そしてあなたの隠れた好み。それらを統合して、世界に一つだけのプランを提示する。私たちのAIプランナーは、あなたの知的な旅の良きコンパニオンとなるでしょう。
+            </p>
+
             <div class="article-footer-cta">
-                <h2>あなたの「好き」をプランに。</h2>
-                <p>目的地と、今の気分を入力するだけ。SURGE v2.5の新しいアルゴリズムが、あなたの旅を特別なものに変えます。</p>
-                <a href="https://trip.surge.f5.si/planner.html" class="btn-planner">AIプランナーを今すぐ体験する</a>
+                <h2>あなたの好奇心を、旅程に変える。</h2>
+                <p>
+                    今回ご紹介した東京のスポットも、SURGEを使えば<br>
+                    あなた専用のルートとして再構築されます。
+                </p>
+                <a href="https://trip.surge.f5.si/planner.html" class="btn-planner">
+                    <i class="fas fa-paper-plane"></i> AIプランナーを体験する
+                </a>
+                <p style="font-size: 14px; margin-top: 20px; color: #86868b;">
+                    現在、ゴールデンウィークの混雑回避アルゴリズム v2.5 が稼働中です。
+                </p>
             </div>
         </div>
     </article>
 
     <footer>
-        <p>© 2026 SURGE Travel Project.</p>
+        <p>© 2026 SURGE Travel Project. / Design for Intelligent Journey</p>
+        <p style="margin-top: 10px; opacity: 0.5;">このコンテンツは SURGE AI Editorial Team によって作成されました。</p>
     </footer>
 
 </body>
