@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 | SURGE Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+    --bg:#ffffff;
+    --text:#1d1d1f;
+    --sub:#86868b;
+    --accent:#0071e3;
+    --light:#f5f5f7;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Noto Sans JP',sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+}
+nav{
+    padding:24px 5%;
+}
+.logo{
+    text-decoration:none;
+    color:#000;
+    font-family:'Plus Jakarta Sans';
+    font-size:22px;
+    font-weight:900;
+}
+main{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 5%;
+}
+.container{
+    max-width:760px;
+    text-align:center;
+}
+.code{
+    font-family:'Plus Jakarta Sans';
+    font-size:clamp(90px,18vw,180px);
+    font-weight:900;
+    line-height:1;
+    letter-spacing:-8px;
+    color:#f2f2f7;
+    margin-bottom:10px;
+}
+h1{
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.2;
+    font-weight:900;
+    letter-spacing:-1px;
+    margin-bottom:30px;
+}
+.description{
+    font-size:18px;
+    color:var(--sub);
+    max-width:620px;
+    margin:0 auto 40px;
+    line-height:2;
+}
+.quote{
+    background:var(--light);
+    padding:32px;
+    border-radius:28px;
+    margin:40px 0;
+    font-size:18px;
+    line-height:1.9;
+}
+.actions{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+.btn{
+    display:inline-block;
+    padding:18px 36px;
+    border-radius:999px;
+    text-decoration:none;
+    font-weight:800;
+    transition:.25s;
+}
+.btn-primary{
+    background:var(--accent);
+    color:#fff;
+    box-shadow:0 12px 30px rgba(0,113,227,.25);
+}
+.btn-secondary{
+    background:var(--light);
+    color:var(--text);
+}
+.btn:hover{
+    transform:translateY(-3px);
+}
+footer{
+    padding:30px;
+    text-align:center;
+    color:var(--sub);
+    font-size:14px;
+}
+@media(max-width:768px){
+    .code{
+        letter-spacing:-4px;
+    }
+    .description{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+<body>
+<nav>
+    <a href="/" class="logo">SURGE Travel</a>
+</nav>
+<main>
+<div class="container">
+<div class="code">
+404
+</div>
+<h1>
+少しだけ、<br>
+道に迷ったようです。
+</h1>
+<p class="description">
+お探しのページは見つかりませんでした。<br>
+移動されたか、削除されたか、あるいはまだ存在していないのかもしれません。
+</p>
+<div class="quote">
+
+旅先で予定通りにいかない日ほど、
+あとから思い出になることがあります。
+
+このページは見つかりませんでしたが、
+次の目的地はきっと見つかります。
+
+</div>
+<div class="actions">
+<a href="/" class="btn btn-primary">
+ホームへ戻る
+</a>
+<a href="https://trip.surge.f5.si/planner.html" class="btn btn-secondary">
+AIプランナーを開く
+</a>
+</div>
+</div>
+</main>
+<footer>
+© 2026 SURGE Travel Project.
+</footer>
+</body>
+</html>
