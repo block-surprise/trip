@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>秋の京都 | あっ、京都</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Yu Mincho",serif;
+background:#f8f5ef;
+color:#333;
+line-height:2;
+}
+
+header{
+background:#111;
+padding:20px 8%;
+}
+
+.logo{
+color:white;
+text-decoration:none;
+font-size:2rem;
+font-weight:bold;
+}
+
+.hero{
+height:60vh;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("../images/autumn.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:4rem;
+}
+
+.hero p{
+margin-top:10px;
+font-size:1.2rem;
+}
+
+.content{
+max-width:1000px;
+margin:auto;
+padding:80px 30px;
+}
+
+h2{
+color:#8b0000;
+margin:50px 0 20px;
+font-size:2rem;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.quote{
+background:white;
+padding:30px;
+border-left:5px solid #8b0000;
+margin-top:40px;
+font-style:italic;
+font-size:1.1rem;
+}
+
+.back{
+display:inline-block;
+margin-top:50px;
+padding:12px 25px;
+background:#8b0000;
+color:white;
+text-decoration:none;
+border-radius:30px;
+}
+
+.back:hover{
+background:#a50000;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:80px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.card-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="../index.html" class="logo">
+あっ、京都
+</a>
+
+</header>
+
+<section class="hero">
+
+<div>
+<h1>秋の京都</h1>
+<p>紅葉が彩る、最も美しい季節</p>
+</div>
+
+</section>
+
+<div class="content">
+
+<h2>秋の魅力</h2>
+
+<p>
+秋の京都は、一年で最も多くの観光客が訪れる季節です。
+寺院や神社、庭園が赤や黄色に染まり、
+古都ならではの美しい景色が広がります。
+</p>
+
+<p>
+朝日に照らされた紅葉、
+夕暮れに染まる寺院、
+幻想的なライトアップ。
+
+どの時間帯にも異なる魅力があり、
+何度訪れても新しい発見があります。
+</p>
+
+<h2>おすすめスポット3選</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<img src="../images/autumn-spot1.jpg" alt="永観堂">
+
+<div class="card-content">
+
+<h3>永観堂</h3>
+
+<p>
+「もみじの永観堂」と呼ばれる
+京都屈指の紅葉名所。
+境内全体が鮮やかな赤色に包まれます。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="../images/autumn-spot2.jpg" alt="東福寺">
+
+<div class="card-content">
+
+<h3>東福寺</h3>
+
+<p>
+通天橋から見下ろす紅葉の海は圧巻。
+京都の秋を代表する絶景です。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="../images/autumn-spot3.jpg" alt="嵐山">
+
+<div class="card-content">
+
+<h3>嵐山</h3>
+
+<p>
+渡月橋と紅葉が織りなす景色は格別。
+ゆったり散策するのにおすすめです。
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<h2>おすすめ写真スポット</h2>
+
+<p>
+東福寺の通天橋はもちろん、
+嵐山の渡月橋周辺や永観堂の池周辺も人気の撮影スポットです。
+</p>
+
+<p>
+朝早い時間帯なら人も少なく、
+美しい紅葉をゆっくり撮影できます。
+</p>
+
+<h2>秋の京都グルメ</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>栗きんとん</h3>
+
+<p>
+秋の味覚を楽しめる上品な和菓子。
+お土産にも人気です。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>京風おでん</h3>
+
+<p>
+少し肌寒くなる季節にぴったり。
+出汁の旨みが身体に染み渡ります。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>抹茶スイーツ</h3>
+
+<p>
+紅葉を眺めながら味わう
+京都定番の贅沢なひととき。
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<h2>秋の京都モデルコース</h2>
+
+<p>
+
+9:00 東福寺で紅葉鑑賞<br>
+11:00 三十三間堂見学<br>
+12:30 京料理ランチ<br>
+14:00 永観堂散策<br>
+16:00 南禅寺参拝<br>
+18:00 紅葉ライトアップ鑑賞
+
+</p>
+
+<div class="quote">
+
+赤く染まる木々の下を歩くたび、
+京都の秋は特別だと感じる。
+
+<br><br>
+
+きっとあなたも、
+思わず「あっ」と声を漏らしてしまう。
+
+</div>
+
+<a href="../index.html" class="back">
+
+← トップページへ戻る
+
+</a>
+
+</div>
+
+<footer>
+
+<p>© 2026 あっ、京都</p>
+
+</footer>
+
+</body>
+</html>
