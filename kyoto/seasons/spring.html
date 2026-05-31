@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>春の京都 | あっ、京都</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Yu Mincho",serif;
+background:#f8f5ef;
+color:#333;
+line-height:2;
+}
+
+header{
+background:#111;
+padding:20px 8%;
+}
+
+.logo{
+color:white;
+text-decoration:none;
+font-size:2rem;
+font-weight:bold;
+}
+
+.hero{
+height:60vh;
+
+background:
+linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+url("../images/spring.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:4rem;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-top:10px;
+}
+
+.content{
+max-width:1000px;
+margin:auto;
+padding:80px 30px;
+}
+
+h2{
+color:#8b0000;
+margin:50px 0 20px;
+font-size:2rem;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.quote{
+background:white;
+padding:30px;
+margin-top:40px;
+border-left:5px solid #8b0000;
+font-style:italic;
+}
+
+.back{
+display:inline-block;
+margin-top:50px;
+padding:12px 25px;
+background:#8b0000;
+color:white;
+text-decoration:none;
+border-radius:30px;
+}
+
+.back:hover{
+background:#a50000;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:80px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.card-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="../index.html" class="logo">
+あっ、京都
+</a>
+
+</header>
+
+<section class="hero">
+
+<div>
+<h1>春の京都</h1>
+<p>桜が彩る古都の風景</p>
+</div>
+
+</section>
+
+<div class="content">
+
+<h2>春の魅力</h2>
+
+<p>
+春の京都は、一年の中でも特に人気の高い季節です。
+街の至るところで桜が咲き誇り、
+歴史ある寺院や神社、石畳の街並みを優しく彩ります。
+暖かな陽気の中で散策すれば、
+京都ならではの風情と春の美しさを同時に楽しむことができます。
+</p>
+
+<h2>おすすめスポット3選</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<img src="../images/spring-spot1.jpg" alt="哲学の道">
+
+<div class="card-content">
+<h3>哲学の道</h3>
+
+<p>
+約2kmにわたり続く桜並木。
+京都を代表する春の散策スポットです。
+</p>
+
+</div>
+</div>
+
+<div class="card">
+<img src="../images/spring-spot2.jpg" alt="円山公園">
+
+<div class="card-content">
+<h3>円山公園</h3>
+
+<p>
+京都屈指の桜の名所。
+夜には美しいしだれ桜がライトアップされます。
+</p>
+
+</div>
+</div>
+
+<div class="card">
+<img src="../images/spring-spot3.jpg" alt="嵐山">
+
+<div class="card-content">
+<h3>嵐山</h3>
+
+<p>
+渡月橋と桜が織りなす絶景。
+春の京都らしい風景を楽しめます。
+</p>
+
+</div>
+</div>
+
+</div>
+
+<h2>おすすめ写真スポット</h2>
+
+<p>
+春の京都で写真を撮るなら、
+哲学の道や蹴上インクラインがおすすめです。
+
+桜のトンネルや線路沿いの桜並木は、
+京都らしい風景を美しく切り取ることができます。
+
+朝早い時間帯は人も少なく、
+落ち着いて撮影できます。
+</p>
+
+<h2>春の京都グルメ</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>桜餅</h3>
+
+<p>
+桜の葉の香りが楽しめる春限定の和菓子。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>抹茶パフェ</h3>
+
+<p>
+宇治抹茶を使った京都定番スイーツ。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>花見団子</h3>
+
+<p>
+桜を眺めながら味わいたい春のおやつです。
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<h2>春の京都モデルコース</h2>
+
+<p>
+
+9:00 哲学の道散策<br>
+11:00 銀閣寺参拝<br>
+12:30 京都ランチ<br>
+14:00 円山公園でお花見<br>
+16:00 清水寺観光<br>
+18:00 八坂神社周辺を散策
+
+</p>
+
+<div class="quote">
+
+「あっ」と思わず足を止めてしまう景色。
+
+春の京都には、
+そんな瞬間があふれています。
+
+</div>
+
+<a href="../index.html" class="back">
+
+← トップページへ戻る
+
+</a>
+
+</div>
+
+<footer>
+
+<p>© 2026 あっ、京都</p>
+
+</footer>
+
+</body>
+</html>
