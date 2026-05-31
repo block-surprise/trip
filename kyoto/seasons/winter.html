@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>冬の京都 | あっ、京都</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Yu Mincho",serif;
+background:#f8f5ef;
+color:#333;
+line-height:2;
+}
+
+header{
+background:#111;
+padding:20px 8%;
+}
+
+.logo{
+color:white;
+text-decoration:none;
+font-size:2rem;
+font-weight:bold;
+}
+
+.hero{
+height:60vh;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("../images/winter.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:4rem;
+}
+
+.hero p{
+margin-top:10px;
+font-size:1.2rem;
+}
+
+.content{
+max-width:1000px;
+margin:auto;
+padding:80px 30px;
+}
+
+h2{
+color:#8b0000;
+margin:50px 0 20px;
+font-size:2rem;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.quote{
+background:white;
+padding:30px;
+border-left:5px solid #8b0000;
+margin-top:40px;
+font-style:italic;
+}
+
+.back{
+display:inline-block;
+margin-top:50px;
+padding:12px 25px;
+background:#8b0000;
+color:white;
+text-decoration:none;
+border-radius:30px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:80px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.card-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="../index.html" class="logo">
+あっ、京都
+</a>
+
+</header>
+
+<section class="hero">
+
+<div>
+<h1>冬の京都</h1>
+<p>静寂に包まれる古都</p>
+</div>
+
+</section>
+
+<div class="content">
+
+<h2>冬の魅力</h2>
+
+<p>
+冬の京都は、四季の中で最も静かな季節です。
+観光客も比較的少なく、
+落ち着いた雰囲気の中で寺院や神社を巡ることができます。
+</p>
+
+<p>
+雪が降った日には、
+金閣寺や清水寺が白く染まり、
+まるで絵画のような美しい景色が広がります。
+</p>
+
+<h2>おすすめスポット3選</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<img src="../images/winter-spot1.jpg" alt="金閣寺">
+
+<div class="card-content">
+
+<h3>金閣寺</h3>
+
+<p>
+雪化粧した金閣寺は京都屈指の絶景。
+冬だけの特別な景色です。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="../images/winter-spot2.jpg" alt="清水寺">
+
+<div class="card-content">
+
+<h3>清水寺</h3>
+
+<p>
+澄んだ冬空と京都市街の眺めが魅力。
+静かな参拝を楽しめます。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="../images/winter-spot3.jpg" alt="嵐山">
+
+<div class="card-content">
+
+<h3>嵐山</h3>
+
+<p>
+冬の渡月橋周辺は落ち着いた雰囲気。
+ゆっくり散策するのに最適です。
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<h2>おすすめ写真スポット</h2>
+
+<p>
+雪が積もった金閣寺は全国的にも有名な撮影スポットです。
+また、朝の嵐山や竹林の小径では、
+冬ならではの静かな風景を撮影できます。
+</p>
+
+<h2>冬の京都グルメ</h2>
+
+<div class="card-grid">
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>湯豆腐</h3>
+
+<p>
+南禅寺周辺の名物。
+寒い季節にぴったりの京都グルメです。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>にしんそば</h3>
+
+<p>
+京都の定番料理。
+温かい出汁が身体を温めてくれます。
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-content">
+
+<h3>ぜんざい</h3>
+
+<p>
+観光の合間に味わいたい冬の甘味。
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<h2>冬の京都モデルコース</h2>
+
+<p>
+
+9:00 金閣寺<br>
+11:00 龍安寺<br>
+12:30 湯豆腐ランチ<br>
+14:00 清水寺<br>
+16:00 八坂神社<br>
+18:00 冬の京都散策
+
+</p>
+
+<div class="quote">
+
+雪が降ると、
+京都はさらに静かになる。
+
+<br><br>
+
+その静けさの中で出会う景色は、
+きっと忘れられない思い出になる。
+
+</div>
+
+<a href="../index.html" class="back">
+
+← トップページへ戻る
+
+</a>
+
+</div>
+
+<footer>
+
+<p>© 2026 あっ、京都</p>
+
+</footer>
+
+</body>
+</html>
