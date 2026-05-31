@@ -417,7 +417,7 @@ font-size:2rem;
 
 <div id="loader">
     <div class="loader-content">
-        <h1>京都</h1>
+        <h1>あっ、京都</h1>
         <p>Loading...</p>
     </div>
 </div>
@@ -721,7 +721,11 @@ function createSakura(){
 
 }
 
-setInterval(createSakura, 350);
+const sakuraInterval = setInterval(createSakura, 350);
+
+setTimeout(() => {
+    clearInterval(sakuraInterval);
+}, 10000);
     window.addEventListener("scroll", () => {
 
     const header =
