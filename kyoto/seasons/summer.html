@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>夏の京都 | あっ、京都</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Yu Mincho",serif;
+background:#f8f5ef;
+color:#333;
+line-height:2;
+}
+
+header{
+background:#111;
+padding:20px 8%;
+}
+
+.logo{
+color:white;
+text-decoration:none;
+font-size:2rem;
+font-weight:bold;
+}
+
+.hero{
+height:60vh;
+
+background:
+linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+url("../images/summer.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:4rem;
+}
+
+.content{
+max-width:1000px;
+margin:auto;
+padding:80px 30px;
+}
+
+h2{
+color:#8b0000;
+margin:50px 0 20px;
+font-size:2rem;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.quote{
+background:white;
+padding:30px;
+border-left:5px solid #8b0000;
+margin-top:40px;
+font-style:italic;
+}
+
+.back{
+display:inline-block;
+margin-top:50px;
+padding:12px 25px;
+background:#8b0000;
+color:white;
+text-decoration:none;
+border-radius:30px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:80px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="../index.html" class="logo">
+あっ、京都
+</a>
+
+</header>
+
+<section class="hero">
+
+<div>
+<h1>夏の京都</h1>
+<p>祭りと涼を楽しむ季節</p>
+</div>
+
+</section>
+
+<div class="content">
+
+<h2>夏の魅力</h2>
+
+<p>
+夏の京都は活気に満ちた季節です。
+日本三大祭のひとつである祇園祭が開催され、
+街全体がお祭りムードに包まれます。
+
+また、川床や竹林など、
+暑い中でも涼を感じられるスポットが数多くあります。
+</p>
+
+<h2>おすすめスポット3選</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<img src="../images/summer-spot1.jpg">
+
+<div class="card-content">
+<h3>祇園祭</h3>
+
+<p>
+7月に開催される京都最大の祭り。
+豪華な山鉾巡行は必見です。
+</p>
+
+</div>
+</div>
+
+<div class="card">
+<img src="../images/summer-spot2.jpg">
+
+<div class="card-content">
+<h3>貴船</h3>
+
+<p>
+川床で涼しい風を感じながら
+食事を楽しめます。
+</p>
+
+</div>
+</div>
+
+<div class="card">
+<img src="../images/summer-spot3.jpg">
+
+<div class="card-content">
+<h3>嵐山竹林の小径</h3>
+
+<p>
+竹林を吹き抜ける風が心地よい
+人気スポットです。
+</p>
+
+</div>
+</div>
+
+</div>
+
+<h2>おすすめ写真スポット</h2>
+
+<p>
+夏の京都なら祇園祭の山鉾や、
+夕暮れ時の鴨川がおすすめです。
+
+また、竹林の小径では
+幻想的な緑の世界を撮影できます。
+</p>
+
+<h2>夏の京都グルメ</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="card-content">
+<h3>川床料理</h3>
+<p>
+川の上で味わう京都の夏の風物詩。
+</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>抹茶かき氷</h3>
+<p>
+暑い日にぴったりの京都スイーツ。
+</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>冷やし茶そば</h3>
+<p>
+さっぱり楽しめる京都の味。
+</p>
+</div>
+</div>
+
+</div>
+
+<h2>夏の京都モデルコース</h2>
+
+<p>
+
+9:00 嵐山散策<br>
+11:00 竹林の小径<br>
+13:00 川床ランチ<br>
+15:00 貴船神社参拝<br>
+18:00 鴨川散策<br>
+19:00 祇園祭や夜の京都を満喫
+
+</p>
+
+<div class="quote">
+
+夏の京都は、
+祭りの熱気と涼やかな風が共存する特別な季節です。
+
+</div>
+
+<a href="../index.html" class="back">
+← トップページへ戻る
+</a>
+
+</div>
+
+<footer>
+
+<p>© 2026 あっ、京都</p>
+
+</footer>
+
+</body>
+</html>
