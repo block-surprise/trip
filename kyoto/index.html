@@ -151,7 +151,7 @@ document.querySelectorAll('.fade').forEach(x=>obs.observe(x));
 
 const s=document.getElementById('sakura');
 function petal(){const d=document.createElement('div');d.className='sakura';d.textContent='🌸';d.style.left=Math.random()*innerWidth+'px';d.style.fontSize=(15+Math.random()*15)+'px';d.style.animationDuration=(8+Math.random()*6)+'s';s.appendChild(d);setTimeout(()=>d.remove(),14000)}
-const inter=setInterval(petal,300);setTimeout(()=>clearInterval(inter),10000);
+const inter=setInterval(petal,300);setTimeout(()=>clearInterval(inter),2000);
 
 const lb=document.getElementById('lightbox');
 const lbimg=document.getElementById('lbimg');
