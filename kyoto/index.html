@@ -21,7 +21,17 @@ nav ul{display:flex;gap:20px;list-style:none}
 .slide3{background-image:url('images/kyoto3.jpg');animation-delay:12s}
 @keyframes hero{0%{opacity:0;transform:scale(1)}10%,30%{opacity:1}30%{transform:scale(1.1)}40%,100%{opacity:0}}
 .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
-.hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;z-index:2;width:90%;}
+.hero-content{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:#fff;
+z-index:2;
+width:100%;
+padding:0 20px;
+}
 .hero-content h1{font-size:7rem;white-space:nowrap;}
 .hero-content a{display:inline-block;margin-top:20px;padding:14px 32px;background:#8b0000;color:#fff;text-decoration:none;border-radius:30px}
 section{padding:100px 10%}
