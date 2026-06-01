@@ -199,5 +199,104 @@ document.querySelectorAll('.gallery img').forEach(img=>img.onclick=()=>{lb.style
 document.getElementById('close').onclick=()=>lb.style.display='none';
 lb.onclick=e=>{if(e.target===lb)lb.style.display='none'};
 </script>
+  <script>
+
+const map = L.map('kyoto-map').setView(
+[35.0116,135.7681],
+12
+);
+
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+attribution:'© OpenStreetMap contributors'
+}
+).addTo(map);
+
+const spots = [
+
+{
+name:"清水寺",
+lat:34.9948,
+lng:135.7850,
+image:"images/kiyomizu.jpg",
+link:"spots/kiyomizu.html",
+text:"京都を代表する世界遺産"
+},
+
+{
+name:"伏見稲荷大社",
+lat:34.9671,
+lng:135.7727,
+image:"images/fushimi.jpg",
+link:"spots/fushimi.html",
+text:"千本鳥居が有名"
+},
+
+{
+name:"嵐山",
+lat:35.0094,
+lng:135.6668,
+image:"images/arashiyama.jpg",
+link:"spots/arashiyama.html",
+text:"竹林と渡月橋の絶景"
+},
+
+{
+name:"金閣寺",
+lat:35.0394,
+lng:135.7292,
+image:"images/kinkaku.jpg",
+link:"#",
+text:"黄金に輝く名刹"
+}
+
+];
+
+spots.forEach(spot=>{
+
+L.marker([spot.lat,spot.lng])
+.addTo(map)
+.bindPopup(`
+
+<div style="width:220px">
+
+<img
+src="${spot.image}"
+style="
+width:100%;
+height:130px;
+object-fit:cover;
+border-radius:10px;
+">
+
+<h3 style="margin:10px 0;">
+${spot.name}
+</h3>
+
+<p style="font-size:14px;">
+${spot.text}
+</p>
+
+<a href="${spot.link}"
+style="
+display:inline-block;
+margin-top:10px;
+background:#8b0000;
+color:white;
+padding:8px 15px;
+border-radius:20px;
+text-decoration:none;
+">
+詳細を見る
+</a>
+
+</div>
+
+`);
+
+});
+
+</script>
 </body>
 </html>
