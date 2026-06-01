@@ -74,6 +74,20 @@ a{text-decoration:none;color:inherit;display:block;} .map-wrapper{border-radius:
     }
 
 }
+  #kyoto-map{
+height:700px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+@media(max-width:768px){
+
+#kyoto-map{
+height:500px;
+}
+
+}
 </style>
 </head>
 <body>
@@ -158,19 +172,12 @@ a{text-decoration:none;color:inherit;display:block;} .map-wrapper{border-radius:
 
 <section class="fade">
 
-    <div class="section-title">
-        <h2>京都観光マップ</h2>
-        <p>人気スポットの場所をチェック</p>
-    </div>
+<div class="section-title">
+<h2>京都観光マップ</h2>
+<p>気になるスポットをクリック</p>
+</div>
 
-    <div class="map-wrapper">
-
-        <iframe
-        src="https://www.google.com/maps/d/embed?mid=1oYiNze5DpAppKsSo8KtYdRxWX1yFfk8&ehbc=2E312F&noprof=1"
-        loading="lazy">
-        </iframe>
-
-    </div>
+<div id="kyoto-map"></div>
 
 </section>
 
