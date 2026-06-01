@@ -28,16 +28,21 @@ padding:20px 8%;
 
 .logo{
 color:white;
-text-decoration:none;
 font-size:2rem;
 font-weight:bold;
+text-decoration:none;
+white-space:nowrap;
 }
 
 .hero{
 height:60vh;
+
 background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url("../images/kinkakuji.png");
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.45)
+),
+url("../images/kinkaku.jpg");
 
 background-size:cover;
 background-position:center;
@@ -45,6 +50,7 @@ background-position:center;
 display:flex;
 justify-content:center;
 align-items:center;
+
 text-align:center;
 color:white;
 }
@@ -53,39 +59,55 @@ color:white;
 font-size:4rem;
 }
 
-.content{
-max-width:1000px;
+.hero p{
+margin-top:15px;
+font-size:1.2rem;
+}
+
+.article{
+max-width:900px;
 margin:auto;
 padding:80px 30px;
 }
 
-h2{
-color:#8b0000;
-margin:50px 0 20px;
+.article-date{
+color:#888;
+margin-bottom:30px;
 }
 
-.spot-image{
+.article h2{
+margin-top:50px;
+margin-bottom:15px;
+color:#8b0000;
+}
+
+.article p{
+margin-bottom:25px;
+font-size:1.1rem;
+}
+
+.article img{
 width:100%;
 border-radius:15px;
-margin:30px 0;
+margin:40px 0;
 }
 
-.info-box{
+.quote{
 background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-margin:30px 0;
+padding:30px;
+border-left:6px solid #c0392b;
+margin:40px 0;
+font-style:italic;
 }
 
 .back{
 display:inline-block;
-margin-top:40px;
 padding:12px 25px;
 background:#8b0000;
 color:white;
 text-decoration:none;
 border-radius:30px;
+margin-top:40px;
 }
 
 footer{
@@ -93,7 +115,6 @@ background:#111;
 color:white;
 text-align:center;
 padding:40px;
-margin-top:60px;
 }
 
 @media(max-width:768px){
@@ -102,62 +123,138 @@ margin-top:60px;
 font-size:2.5rem;
 }
 
+.hero p{
+font-size:1rem;
+}
+
+.logo{
+font-size:1.5rem;
+}
+
 }
 
 </style>
 </head>
+
 <body>
 
 <header>
+
 <a href="../index.html" class="logo">
 あっ、京都
 </a>
+
 </header>
 
 <section class="hero">
 
 <div>
+
 <h1>金閣寺</h1>
-<p>黄金に輝く京都の象徴</p>
-<h2>金閣寺とは？</h2>
-<p>
-正式名称は鹿苑寺（ろくおんじ）。
-室町幕府三代将軍・足利義満によって建てられました。
 
-鏡湖池に映る金閣の姿は、
-京都を代表する景色として知られています。
-
-</p>
-<h2>見どころ</h2>
 <p>
-・金箔で覆われた舎利殿<br>
-・鏡湖池に映る逆さ金閣<br>
-・四季によって変わる庭園
+黄金に輝く京都の象徴
 </p>
-<h2>おすすめ写真スポット</h2>
-<p>
-池越しに見る金閣寺が定番。
-特に晴れた日は水面への反射が美しいです。
-</p>
-<h2>おすすめの季節</h2>
-<p>
-春の新緑、秋の紅葉、
-そして冬の雪化粧は特に人気があります。
-</p>
-<h2>周辺グルメ</h2>
-<p>
-抹茶スイーツや京だんごなど、
-京都らしい和スイーツを楽しめます。
-</p>
-
-<a href="../index.html" class="back">
-← トップページへ戻る
-</a>
 
 </div>
 
+</section>
+
+<article class="article">
+
+<div class="article-date">
+2026年6月2日
+</div>
+
+<p>
+
+京都を代表する観光名所のひとつ、
+金閣寺。
+
+正式名称は鹿苑寺（ろくおんじ）ですが、
+その美しい金色の舎利殿から
+「金閣寺」の名前で広く知られています。
+
+</p>
+
+<img src="../images/kinkaku.jpg" alt="金閣寺">
+
+<h2>金閣寺とは？</h2>
+
+<p>
+
+室町幕府三代将軍・足利義満によって
+建立された寺院です。
+
+世界遺産にも登録されており、
+京都を訪れたら一度は見ておきたい名所です。
+
+</p>
+
+<div class="quote">
+
+鏡湖池に映る金閣寺は、
+まるで一枚の絵画のような美しさです。
+
+</div>
+
+<h2>見どころ</h2>
+
+<p>
+
+・金箔で覆われた舎利殿<br>
+・鏡湖池に映る逆さ金閣<br>
+・四季折々の庭園風景
+
+</p>
+
+<h2>おすすめ写真スポット</h2>
+
+<p>
+
+池越しに見る金閣寺が定番です。
+
+特に朝や夕方は光が柔らかく、
+美しい写真を撮影できます。
+
+</p>
+
+<h2>おすすめの季節</h2>
+
+<p>
+
+春の新緑、
+秋の紅葉、
+冬の雪景色は特に人気があります。
+
+雪化粧した金閣寺は
+京都屈指の絶景として知られています。
+
+</p>
+
+<h2>周辺グルメ</h2>
+
+<p>
+
+金閣寺周辺には
+抹茶スイーツや京だんごのお店が並びます。
+
+観光の合間に立ち寄るのもおすすめです。
+
+</p>
+
+<a href="../index.html" class="back">
+
+← トップページへ戻る
+
+</a>
+
+</article>
+
 <footer>
-© 2026 あっ、京都
+
+<p>© 2026 あっ、京都</p>
+
 </footer>
 
 </body>
