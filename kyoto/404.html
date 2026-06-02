@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 | あっ、京都</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Yu Mincho",serif;
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+url("images/kyoto1.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+color:white;
+}
+
+.container{
+max-width:700px;
+padding:30px;
+}
+
+.error{
+font-size:8rem;
+font-weight:bold;
+line-height:1;
+}
+
+h1{
+font-size:2.5rem;
+margin:20px 0;
+}
+
+p{
+font-size:1.2rem;
+line-height:2;
+opacity:.9;
+}
+
+.btn{
+display:inline-block;
+margin-top:40px;
+padding:15px 35px;
+background:#8b0000;
+color:white;
+text-decoration:none;
+border-radius:40px;
+transition:.3s;
+}
+
+.btn:hover{
+background:#a50000;
+transform:translateY(-3px);
+}
+
+.sakura{
+position:fixed;
+top:-20px;
+pointer-events:none;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+to{
+transform:
+translateY(110vh)
+rotate(360deg);
+}
+
+}
+
+@media(max-width:768px){
+
+.error{
+font-size:5rem;
+}
+
+h1{
+font-size:1.8rem;
+}
+
+p{
+font-size:1rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="error">
+404
+</div>
+
+<h1>
+迷子になってしまったようです
+</h1>
+
+<p>
+
+お探しのページは見つかりませんでした。
+
+もしかすると、
+京都の路地裏で道に迷ってしまったのかもしれません。
+
+</p>
+
+<a href="/" class="btn">
+トップページへ戻る
+</a>
+
+</div>
+
+<script>
+
+function createPetal(){
+
+const petal =
+document.createElement("div");
+
+petal.className="sakura";
+petal.innerHTML="🌸";
+
+petal.style.left=
+Math.random()*window.innerWidth+"px";
+
+petal.style.fontSize=
+(15+Math.random()*20)+"px";
+
+petal.style.animationDuration=
+(6+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},12000);
+
+}
+
+const interval =
+setInterval(createPetal,300);
+
+setTimeout(()=>{
+clearInterval(interval);
+},3000);
+
+</script>
+
+</body>
+</html>
